@@ -1,0 +1,593 @@
+/* ==========================================================================
+   BRICOR COMPONENTES ESPECÍFICOS
+   Botones, Tarjetas, Filtros, Carrito, Insignias y Formularios
+   ========================================================================== */
+
+/* Botones con carácter técnico / industrial */
+.bricor-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 10px 20px;
+  border-radius: var(--radius-xs);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.bricor-btn-primary {
+  background-color: var(--color-oxido);
+  color: #FFFFFF;
+  border-color: var(--color-oxido);
+}
+.bricor-btn-primary:hover {
+  background-color: var(--color-oxido-hover);
+  border-color: var(--color-oxido-hover);
+  color: #FFFFFF;
+}
+
+.bricor-btn-secondary {
+  background-color: transparent;
+  color: var(--color-carbon);
+  border-color: var(--color-carbon);
+}
+.bricor-btn-secondary:hover {
+  background-color: var(--color-carbon);
+  color: #FFFFFF;
+}
+
+.bricor-btn-dark {
+  background-color: var(--color-carbon);
+  color: var(--color-marfil);
+  border-color: var(--color-carbon);
+}
+.bricor-btn-dark:hover {
+  background-color: #171815;
+  color: #FFFFFF;
+}
+
+.bricor-btn-outline-white {
+  background-color: transparent;
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.bricor-btn-outline-white:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+.bricor-btn-sm {
+  padding: 6px 12px;
+  font-size: var(--text-xs);
+}
+
+.bricor-btn-block {
+  width: 100%;
+}
+
+.bricor-btn:disabled,
+.bricor-btn[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Insignias e Indicadores */
+.bricor-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  border-radius: var(--radius-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.bricor-badge-oliva {
+  background-color: var(--color-oliva-bg);
+  color: var(--color-oliva);
+  border: 1px solid rgba(89, 98, 82, 0.3);
+}
+
+.bricor-badge-oxido {
+  background-color: var(--color-oxido-light);
+  color: var(--color-oxido);
+  border: 1px solid rgba(194, 84, 54, 0.3);
+}
+
+.bricor-badge-stock {
+  background-color: #E8F2EA;
+  color: var(--color-success);
+  border: 1px solid rgba(61, 106, 71, 0.25);
+}
+
+.bricor-badge-lowstock {
+  background-color: #FBF0E4;
+  color: var(--color-warning);
+  border: 1px solid rgba(201, 122, 30, 0.25);
+}
+
+/* Tarjeta de Producto - Editorial Industrial */
+.bricor-product-card {
+  background-color: var(--color-marfil-card);
+  border: 1px solid var(--color-piedra-light);
+  border-radius: var(--radius-xs);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+  cursor: pointer;
+}
+
+.bricor-product-card:hover {
+  border-color: var(--color-piedra-dark);
+  box-shadow: 0 4px 16px rgba(37, 38, 34, 0.09);
+  transform: translateY(-2px);
+}
+
+.bricor-product-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 82%;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-piedra-light);
+}
+
+.bricor-product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: var(--space-4);
+  transition: transform var(--transition-normal);
+}
+
+.bricor-product-card:hover .bricor-product-image {
+  transform: scale(1.04);
+}
+
+.bricor-product-badge-corner {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: 2;
+}
+
+.bricor-product-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.bricor-product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.bricor-product-brand {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-oliva);
+  letter-spacing: 0.06em;
+}
+
+.bricor-product-sku {
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+  color: var(--color-piedra-dark);
+}
+
+.bricor-product-title {
+  font-family: var(--font-body);
+  font-size: 0.93rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-carbon);
+  margin: 0 0 8px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-transform: none;
+  min-height: 2.5em;
+}
+
+.bricor-product-title a {
+  color: var(--color-carbon);
+}
+
+.bricor-product-title a:hover {
+  color: var(--color-oxido);
+}
+
+/* Indicador de stock discreto y técnico */
+.bricor-product-stock-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.bricor-stock-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.bricor-stock-dot.is-in-stock {
+  background-color: var(--color-success);
+  box-shadow: 0 0 0 2px rgba(61, 106, 71, 0.15);
+}
+
+.bricor-stock-dot.is-out-of-stock {
+  background-color: var(--color-piedra);
+}
+
+.bricor-stock-text {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--color-oliva);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.bricor-product-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dashed var(--color-piedra-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Precios */
+.bricor-price-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.bricor-price-current {
+  font-family: var(--font-editorial);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--color-carbon);
+  line-height: 1;
+}
+
+.bricor-price-promo {
+  color: var(--color-oxido);
+}
+
+.bricor-price-old {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-piedra);
+  text-decoration: line-through;
+  margin-top: 2px;
+}
+
+/* Selector de Cantidad */
+.bricor-quantity-selector {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-piedra);
+  border-radius: var(--radius-xs);
+  background: var(--color-marfil-card);
+  overflow: hidden;
+}
+
+.bricor-qty-btn {
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-carbon);
+  transition: background-color var(--transition-fast);
+}
+
+.bricor-qty-btn:hover {
+  background-color: var(--color-marfil-muted);
+}
+
+.bricor-qty-input {
+  width: 44px;
+  height: 32px;
+  border: none;
+  border-left: 1px solid var(--color-piedra-light);
+  border-right: 1px solid var(--color-piedra-light);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-carbon);
+  background: transparent;
+}
+
+.bricor-qty-input:focus {
+  outline: none;
+}
+
+/* Categoría Card */
+.bricor-category-card {
+  position: relative;
+  background-color: var(--color-carbon);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  display: block;
+  height: 200px;
+  border: 1px solid var(--color-carbon-light);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.bricor-category-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-oxido);
+  box-shadow: 0 8px 24px rgba(37, 38, 34, 0.25);
+}
+
+.bricor-category-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+.bricor-category-card:hover .bricor-category-card-img {
+  transform: scale(1.05);
+  opacity: 0.72;
+}
+
+.bricor-category-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(23, 24, 21, 0.97) 0%, rgba(23, 24, 21, 0.45) 55%, rgba(23, 24, 21, 0.05) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px 18px;
+}
+
+.bricor-category-card-title {
+  color: #FFFFFF;
+  font-family: var(--font-editorial);
+  font-size: 1.2rem;
+  margin: 0 0 var(--space-1) 0;
+}
+
+.bricor-category-card-count {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-piedra);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Bloque Promocional Editorial */
+.bricor-promo-block {
+  background-color: var(--color-carbon-surface);
+  border: 1px solid var(--color-carbon-light);
+  border-left: 6px solid var(--color-oxido);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  color: var(--color-marfil);
+}
+
+/* Bloque de Confianza - Industrial */
+.bricor-trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: 20px;
+  background: var(--color-marfil-card);
+  border: 1px solid var(--color-piedra-light);
+  border-top: 3px solid var(--color-carbon);
+  border-radius: var(--radius-xs);
+  height: 100%;
+}
+
+.bricor-trust-icon {
+  color: var(--color-oxido);
+  background: var(--color-oxido-light);
+  padding: 10px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Drawer de Carrito (Panel lateral) */
+.bricor-cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 460px;
+  background-color: var(--color-marfil-card);
+  box-shadow: -8px 0 32px rgba(29, 30, 26, 0.28);
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.bricor-cart-drawer.is-open {
+  transform: translateX(0);
+}
+
+.bricor-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 27, 24, 0.65);
+  z-index: 1040;
+  backdrop-filter: blur(4px);
+  animation: bricorBackdropFadeIn 0.25s ease-out;
+}
+
+@keyframes bricorBackdropFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.bricor-cart-drawer-header {
+  padding: 16px 20px;
+  background: var(--color-carbon);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--color-oxido);
+  flex-shrink: 0;
+}
+
+/* Barra de Progreso para Envío Gratis */
+.bricor-shipping-progress-banner {
+  background-color: #272a24;
+  color: var(--color-marfil);
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.bricor-shipping-progress-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.bricor-shipping-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-oxido) 0%, #e87a32 100%);
+  border-radius: 3px;
+  transition: width 0.4s ease-out;
+}
+
+.bricor-shipping-progress-fill.is-free {
+  background: linear-gradient(90deg, var(--color-success) 0%, #2ecc71 100%);
+}
+
+.bricor-cart-drawer-body {
+  padding: 16px 20px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Sección de Venta Cruzada (Cross-Selling) */
+.bricor-drawer-cross-sell {
+  background-color: var(--color-marfil);
+  border: 1px dashed var(--color-piedra);
+  border-left: 3px solid var(--color-oxido);
+  border-radius: var(--radius-xs);
+  padding: 12px 14px;
+  margin-top: 8px;
+}
+
+.bricor-cross-sell-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bricor-cross-sell-thumb {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-piedra-light);
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+
+.bricor-cart-drawer-footer {
+  padding: 16px 20px 20px;
+  background: var(--color-marfil-surface);
+  border-top: 1px solid var(--color-piedra-light);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
+}
+
+/* Formularios de Checkout */
+.bricor-form-group {
+  margin-bottom: var(--space-4);
+}
+
+.bricor-label {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-oliva);
+  margin-bottom: var(--space-1);
+}
+
+.bricor-input,
+.bricor-select,
+.bricor-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  background-color: var(--color-marfil-card);
+  border: 1px solid var(--color-piedra);
+  border-radius: var(--radius-xs);
+  color: var(--color-carbon);
+  transition: border-color var(--transition-fast);
+}
+
+.bricor-input:focus,
+.bricor-select:focus,
+.bricor-textarea:focus {
+  border-color: var(--color-oxido);
+  outline: none;
+}
+
+.bricor-input-error {
+  border-color: var(--color-error);
+}
+
+.bricor-error-message {
+  color: var(--color-error);
+  font-size: var(--text-xs);
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

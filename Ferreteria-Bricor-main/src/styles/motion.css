@@ -1,0 +1,192 @@
+/* ==========================================================================
+   BRICOR MOTION DESIGN
+   Animaciones editoriales usando UIkit 3 + CSS propio donde UIkit no llega.
+   Respeta prefers-reduced-motion en todos los casos.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HERO — Ken Burns muy lento y discreto en la fotografía de fondo
+   Independiente del contenido; nunca bloquea la legibilidad del texto.
+   -------------------------------------------------------------------------- */
+@keyframes bricor-kenburns {
+  0%   { transform: scale(1.0) translateX(0);     }
+  50%  { transform: scale(1.04) translateX(-6px); }
+  100% { transform: scale(1.0) translateX(0);     }
+}
+
+.bricor-hero-kenburns {
+  animation: bricor-kenburns 22s ease-in-out infinite;
+  will-change: transform;
+  transform-origin: center center;
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO CONTENT — Entrada escalonada de titular, descripción y botones
+   Utiliza clases nativas de UIkit (uk-animation-slide-bottom-small, uk-animation-fade)
+   -------------------------------------------------------------------------- */
+.bricor-hero-content .uk-animation-slide-bottom-small,
+.bricor-hero-content .uk-animation-fade {
+  animation-duration: 0.55s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --------------------------------------------------------------------------
+   3. BOTONES — Transiciones breves y sutil lift al hover
+   -------------------------------------------------------------------------- */
+.bricor-btn {
+  transform: translateY(0);
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast),
+              color var(--transition-fast),
+              transform 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.bricor-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 38, 34, 0.18);
+}
+
+.bricor-btn-primary:hover:not(:disabled) {
+  box-shadow: 0 4px 14px rgba(194, 84, 54, 0.35);
+}
+
+.bricor-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+  transition-duration: 0.08s;
+}
+
+/* --------------------------------------------------------------------------
+   4. TARJETAS DE PRODUCTO — Zoom muy leve en imagen y transiciones suaves
+   No agiganta la cuadrícula ni oculta acciones en táctil.
+   -------------------------------------------------------------------------- */
+.bricor-product-card {
+  transition: border-color 0.22s ease,
+              box-shadow 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.bricor-product-image {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.bricor-product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 38, 34, 0.11) !important;
+}
+
+.bricor-product-card:hover .bricor-product-image {
+  transform: scale(1.04);
+}
+
+.bricor-product-card .bricor-btn {
+  transition: background-color 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease,
+              transform 0.15s ease,
+              box-shadow 0.15s ease;
+}
+
+/* --------------------------------------------------------------------------
+   5. CATEGORÍAS — Tarjetas con zoom suave y scrollspy nativo de UIkit
+   -------------------------------------------------------------------------- */
+.bricor-category-card {
+  transition: transform 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.25s ease,
+              box-shadow 0.28s ease !important;
+}
+
+.bricor-category-card-img {
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.35s ease !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. NAVEGACIÓN — Refuerzo del estado activo con color óxido e indicador
+   -------------------------------------------------------------------------- */
+.bricor-category-nav-item a {
+  position: relative;
+  transition: color 0.2s ease !important;
+}
+
+.bricor-category-nav-item a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background-color: var(--color-oxido);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.bricor-category-nav-item.active a::after {
+  transform: scaleX(1);
+}
+
+.bricor-category-nav-item.active a {
+  color: #FFFFFF !important;
+  font-weight: 600;
+  border-bottom-color: transparent !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. PANEL LATERAL / CARRITO (Transición nativa basada en uk-offcanvas)
+   -------------------------------------------------------------------------- */
+.bricor-cart-drawer.is-open {
+  animation: uk-slide-right 0.32s cubic-bezier(0.1, 0.7, 0.1, 1);
+}
+
+.bricor-drawer-backdrop {
+  animation: uk-fade 0.25s linear;
+}
+
+/* --------------------------------------------------------------------------
+   8. PREFERS-REDUCED-MOTION — Desactivación estricta de animaciones
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .bricor-hero-kenburns {
+    animation: none !important;
+  }
+
+  .bricor-hero-content .uk-animation-slide-bottom-small,
+  .bricor-hero-content .uk-animation-fade {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .bricor-btn:hover:not(:disabled),
+  .bricor-btn:active:not(:disabled) {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .bricor-product-card:hover {
+    transform: none !important;
+    box-shadow: 0 2px 8px rgba(37, 38, 34, 0.07) !important;
+  }
+
+  .bricor-product-card:hover .bricor-product-image {
+    transform: none !important;
+  }
+
+  .bricor-category-card:hover {
+    transform: none !important;
+  }
+
+  .bricor-category-card:hover .bricor-category-card-img {
+    transform: none !important;
+  }
+
+  .bricor-cart-drawer.is-open {
+    animation: none !important;
+  }
+
+  .bricor-drawer-backdrop {
+    animation: none !important;
+  }
+}
