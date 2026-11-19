@@ -6,6 +6,7 @@ import MainNavigation from './components/layout/MainNavigation';
 import Footer from './components/layout/Footer';
 import MobileMenu from './components/layout/MobileMenu';
 import CartDrawer from './components/cart/CartDrawer';
+import ChatWidget from './components/chat/ChatWidget';
 
 // Páginas de la tienda
 import HomePage from './pages/HomePage';
@@ -133,6 +134,15 @@ export default function App() {
           onSelectCategory={handleSelectCategory}
           onNavigate={handleNavigate}
         />
+
+        {/* Asistente virtual BRICOR */}
+        <ChatWidget
+          onNavigate={handleNavigate}
+          onSelectCategory={handleSelectCategory}
+          onViewProduct={handleViewProduct}
+          onSearch={handleSearch}
+        />
+        
       </div>
     </CartProvider>
   );
