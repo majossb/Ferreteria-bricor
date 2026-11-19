@@ -14,10 +14,9 @@ export default function Header({ onNavigate, onSearch, currentSearch = '', onTog
           {/* Botón menú móvil */}
           <button
             type="button"
-            className="bricor-header-action-btn uk-hidden@m"
+            className="bricor-header-action-btn uk-hidden@m u-padding-8px"
             onClick={onToggleMobileMenu}
             aria-label="Abrir menú de navegación"
-            style={{ padding: '8px' }}
           >
             <Menu size={22} />
           </button>
@@ -26,7 +25,7 @@ export default function Header({ onNavigate, onSearch, currentSearch = '', onTog
           <Logo onClick={() => onNavigate('home')} />
 
           {/* Buscador amplio */}
-          <div className="uk-visible@s uk-flex-1" style={{ maxWidth: '520px', margin: '0 16px' }}>
+          <div className="uk-visible@s uk-flex-1 header-div-01">
             <SearchBar onSearch={onSearch} initialQuery={currentSearch} />
           </div>
 
@@ -74,7 +73,7 @@ export default function Header({ onNavigate, onSearch, currentSearch = '', onTog
         </div>
 
         {/* Buscador visible solo en móviles debajo del logo */}
-        <div className="uk-hidden@s" style={{ paddingBottom: '12px' }}>
+        <div className="uk-hidden@s u-padding-bottom-12px">
           <SearchBar onSearch={onSearch} initialQuery={currentSearch} />
         </div>
       </div>

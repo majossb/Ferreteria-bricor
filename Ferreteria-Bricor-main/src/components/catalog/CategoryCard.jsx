@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 export default function CategoryCard({ category, onSelect }) {
   return (
     <div
-      className="bricor-category-card"
+      className="bricor-category-card u-cursor-pointer"
       onClick={() => onSelect(category.id)}
       role="button"
       tabIndex={0}
@@ -14,7 +14,6 @@ export default function CategoryCard({ category, onSelect }) {
         }
       }}
       aria-label={`Explorar categoría ${category.name}`}
-      style={{ cursor: 'pointer' }}
     >
       <img
         src={category.image}
@@ -26,7 +25,7 @@ export default function CategoryCard({ category, onSelect }) {
         <h3 className="bricor-category-card-title">{category.name}</h3>
         <div className="bricor-category-card-count">
           <span>{category.itemCount} referencias</span>
-          <ArrowRight size={14} style={{ color: 'var(--color-oxido)', marginLeft: '4px' }} />
+          <ArrowRight size={14} className="category-card-arrowright-01" />
         </div>
       </div>
     </div>

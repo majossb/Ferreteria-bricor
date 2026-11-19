@@ -142,15 +142,7 @@ export default function PurchasesPage({ onNavigate, onViewProduct: _onViewProduc
     if (s === 'APPROVED') {
       return (
         <span
-          className="bricor-badge"
-          style={{
-            backgroundColor: 'rgba(39, 174, 96, 0.12)',
-            color: 'var(--color-success)',
-            border: '1px solid rgba(39, 174, 96, 0.3)',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '4px',
-          }}
+          className="bricor-badge purchases-page-span-01"
         >
           <CheckCircle size={12} /> Pago Aprobado
         </span>
@@ -159,15 +151,7 @@ export default function PurchasesPage({ onNavigate, onViewProduct: _onViewProduc
     if (s === 'DECLINED') {
       return (
         <span
-          className="bricor-badge"
-          style={{
-            backgroundColor: 'rgba(197, 65, 41, 0.12)',
-            color: 'var(--color-error)',
-            border: '1px solid rgba(197, 65, 41, 0.3)',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '4px',
-          }}
+          className="bricor-badge purchases-page-span-02"
         >
           <XCircle size={12} /> Pago Rechazado
         </span>
@@ -175,15 +159,7 @@ export default function PurchasesPage({ onNavigate, onViewProduct: _onViewProduc
     }
     return (
       <span
-        className="bricor-badge"
-        style={{
-          backgroundColor: 'rgba(90, 98, 86, 0.12)',
-          color: 'var(--color-oliva)',
-          border: '1px solid rgba(90, 98, 86, 0.3)',
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '4px',
-        }}
+        className="bricor-badge purchases-page-span-03"
       >
         <Clock size={12} /> Pago Pendiente
       </span>
@@ -227,18 +203,18 @@ export default function PurchasesPage({ onNavigate, onViewProduct: _onViewProduc
   };
 
   return (
-    <div style={{ padding: '40px 0 96px', minHeight: '70vh' }}>
-      <div className="uk-container" style={{ maxWidth: '960px' }}>
+    <div className="purchases-page-div-01">
+      <div className="uk-container u-max-width-960px">
         {/* Encabezado editorial de la página */}
-        <div style={{ borderBottom: '2px solid var(--color-carbon)', paddingBottom: '16px', marginBottom: '32px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '12px' }}>
+        <div className="checkout-page-div-17">
+          <div className="uk-flex uk-flex-between uk-flex-bottom uk-flex-wrap u-gap-12px">
             <div>
               <span className="bricor-label">Historial de Clientes</span>
-              <h1 style={{ margin: '4px 0 0 0', fontSize: '2.2rem' }}>Mis Compras</h1>
+              <h1 className="purchases-page-h1-01">Mis Compras</h1>
             </div>
             {session && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-oliva)', fontFamily: 'var(--font-mono)' }}>
+              <div className="uk-flex uk-flex-middle u-gap-12px">
+                <span className="purchases-page-span-04">
                   {session.email}
                 </span>
                 <Button
@@ -257,46 +233,29 @@ export default function PurchasesPage({ onNavigate, onViewProduct: _onViewProduc
 
         {/* CASO 1: No hay sesión activa -> Formulario seguro con token temporal */}
         {!session ? (
-          <div style={{ maxWidth: '540px', margin: '40px auto 0' }}>
+          <div className="purchases-page-div-02">
             <div
-              style={{
-                backgroundColor: 'var(--color-marfil-card)',
-                border: '1px solid var(--color-piedra-light)',
-                borderTop: '5px solid var(--color-carbon)',
-                borderRadius: 'var(--radius-xs)',
-                padding: '36px 32px',
-              }}
+              className="purchases-page-div-03"
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-                <ShieldCheck size={26} style={{ color: 'var(--color-oxido)' }} />
-                <h3 style={{ margin: 0, fontSize: '1.35rem' }}>Consulta Segura de Pedidos</h3>
+              <div className="uk-flex uk-flex-middle purchases-page-div-04">
+                <ShieldCheck size={26} className="u-color-oxido" />
+                <h3 className="uk-margin-remove u-font-size-1-35rem">Consulta Segura de Pedidos</h3>
               </div>
-              <p style={{ color: 'var(--color-oliva)', fontSize: 'var(--text-sm)', lineHeight: '1.6', marginBottom: '24px' }}>
+              <p className="purchases-page-p-01">
                 Para proteger tu privacidad, ingresa el <strong>correo electrónico</strong> utilizado en tus compras y el <strong>número de orden</strong> de cualquiera de tus pedidos (ej. <code>BCR-123456</code>).
               </p>
 
               {authError && (
                 <div
-                  style={{
-                    backgroundColor: 'rgba(197, 65, 41, 0.1)',
-                    border: '1px solid var(--color-error)',
-                    color: 'var(--color-error)',
-                    padding: '12px 14px',
-                    borderRadius: 'var(--radius-xs)',
-                    fontSize: 'var(--text-xs)',
-                    marginBottom: '20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                  }}
+                  className="uk-margin-bottom uk-flex uk-flex-middle purchases-page-div-05"
                 >
-                  <AlertCircle size={16} style={{ flexShrink: 0 }} />
+                  <AlertCircle size={16} className="u-flex-shrink-0" />
                   <span>{authError}</span>
                 </div>
               )}
 
               <form onSubmit={handleAuthSubmit}>
-                <div style={{ marginBottom: '16px' }}>
+                <div className="u-margin-bottom-16px">
                   <FormField
                     label="Correo Electrónico de Facturación"
                     id="email"
@@ -309,7 +268,7 @@ export default function PurchasesPage({ onNavigate, onViewProduct: _onViewProduc
                   />
                 </div>
 
-                <div style={{ marginBottom: '24px' }}>
+                <div className="u-margin-bottom-24px">
                   <FormField
                     label="Número de Pedido o Referencia Wompi"
                     id="orderNumber"
@@ -332,18 +291,11 @@ export default function PurchasesPage({ onNavigate, onViewProduct: _onViewProduc
                 </Button>
               </form>
 
-              <div style={{ marginTop: '20px', textAlign: 'center' }}>
+              <div className="uk-margin-top uk-text-center">
                 <button
                   type="button"
                   onClick={() => onNavigate('catalog')}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: 'var(--color-oliva)',
-                    cursor: 'pointer',
-                    fontSize: 'var(--text-xs)',
-                    textDecoration: 'underline',
-                  }}
+                  className="purchases-page-button-01"
                 >
                   ¿No tienes pedidos aún? Explorar el catálogo
                 </button>
@@ -354,43 +306,30 @@ export default function PurchasesPage({ onNavigate, onViewProduct: _onViewProduc
           /* CASO 2: Sesión activa -> Listado de pedidos */
           <div>
             {isLoading ? (
-              <div style={{ textAlign: 'center', padding: '60px 0' }}>
-                <div data-uk-spinner="ratio: 2" style={{ color: 'var(--color-oxido)' }}></div>
-                <p style={{ marginTop: '16px', color: 'var(--color-oliva)', fontSize: 'var(--text-sm)' }}>
+              <div className="uk-text-center u-padding-60px-0">
+                <div data-uk-spinner="ratio: 2" className="u-color-oxido"></div>
+                <p className="purchases-page-p-02">
                   Cargando tus compras registradas...
                 </p>
               </div>
             ) : error ? (
               <div
-                style={{
-                  backgroundColor: 'rgba(197, 65, 41, 0.1)',
-                  border: '1px solid var(--color-error)',
-                  padding: '24px',
-                  borderRadius: 'var(--radius-xs)',
-                  textAlign: 'center',
-                  color: 'var(--color-error)',
-                }}
+                className="uk-text-center purchases-page-div-06"
               >
-                <AlertCircle size={32} style={{ margin: '0 auto 12px' }} />
+                <AlertCircle size={32} className="u-margin-0-auto-12px" />
                 <h4>Ocurrió un error al consultar tus pedidos</h4>
-                <p style={{ fontSize: 'var(--text-sm)' }}>{error}</p>
-                <Button variant="secondary" onClick={handleLogout} style={{ marginTop: '12px' }}>
+                <p className="u-font-size-sm">{error}</p>
+                <Button variant="secondary" onClick={handleLogout} className="u-margin-top-12px">
                   Volver a autenticar
                 </Button>
               </div>
             ) : orders.length === 0 ? (
               <div
-                style={{
-                  backgroundColor: 'var(--color-marfil-card)',
-                  border: '1px solid var(--color-piedra-light)',
-                  borderRadius: 'var(--radius-xs)',
-                  padding: '48px 24px',
-                  textAlign: 'center',
-                }}
+                className="uk-text-center purchases-page-div-07"
               >
-                <ShoppingBag size={48} style={{ color: 'var(--color-piedra)', marginBottom: '16px' }} />
+                <ShoppingBag size={48} className="cart-drawer-shoppingbag-01" />
                 <h3>No hay pedidos registrados con esta cuenta</h3>
-                <p style={{ color: 'var(--color-oliva)', fontSize: 'var(--text-sm)', marginBottom: '24px' }}>
+                <p className="checkout-page-p-04">
                   No encontramos compras confirmadas para <strong>{session.email}</strong>.
                 </p>
                 <Button variant="primary" onClick={() => onNavigate('catalog')}>
@@ -398,7 +337,7 @@ export default function PurchasesPage({ onNavigate, onViewProduct: _onViewProduc
                 </Button>
               </div>
             ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div className="uk-flex uk-flex-column u-gap-20px">
                 {orders.map((order) => {
                   const isExpanded = expandedOrderNumber === order.orderNumber;
                   const formattedDate = new Date(order.createdAt).toLocaleDateString('es-CO', {
@@ -412,69 +351,43 @@ export default function PurchasesPage({ onNavigate, onViewProduct: _onViewProduc
                   return (
                     <div
                       key={order.orderNumber}
-                      style={{
-                        backgroundColor: 'var(--color-marfil-card)',
-                        border: '1px solid var(--color-piedra-light)',
-                        borderTop: '3px solid var(--color-carbon)',
-                        borderRadius: 'var(--radius-xs)',
-                        overflow: 'hidden',
-                        transition: 'box-shadow var(--transition-fast)',
-                      }}
+                      className="uk-overflow-hidden purchases-page-div-08"
                     >
                       {/* Cabecera resumida del pedido */}
                       <div
-                        style={{
-                          padding: '20px 24px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          flexWrap: 'wrap',
-                          gap: '16px',
-                          cursor: 'pointer',
-                          backgroundColor: isExpanded ? 'var(--color-marfil)' : 'transparent',
-                        }}
+                        className="uk-flex uk-flex-middle uk-flex-between uk-flex-wrap purchases-page-div-09" style={{ backgroundColor: isExpanded ? 'var(--color-marfil)' : 'transparent' }}
                         onClick={() => toggleOrderDetails(order.orderNumber)}
                       >
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+                        <div className="uk-flex uk-flex-middle uk-flex-wrap u-gap-16px">
                           <div>
-                            <span className="bricor-label" style={{ marginBottom: '2px' }}>
+                            <span className="bricor-label u-margin-bottom-2px">
                               Orden
                             </span>
                             <span
-                              style={{
-                                fontFamily: 'var(--font-mono)',
-                                fontWeight: 700,
-                                fontSize: '1.15rem',
-                                color: 'var(--color-carbon)',
-                              }}
+                              className="purchases-page-span-05"
                             >
                               #{order.orderNumber}
                             </span>
                           </div>
 
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--color-oliva)', fontSize: 'var(--text-xs)' }}>
+                          <div className="uk-flex uk-flex-middle purchases-page-div-10">
                             <Calendar size={14} />
                             <span>{formattedDate}</span>
                           </div>
 
-                          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                          <div className="uk-flex uk-flex-wrap u-gap-8px">
                             {renderPaymentBadge(order.status)}
                             {renderLogisticBadge(order.logisticStatus, order.logisticStatusLabel)}
                           </div>
                         </div>
 
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                          <div style={{ textAlign: 'right' }}>
-                            <span className="bricor-label" style={{ marginBottom: '2px' }}>
+                        <div className="uk-flex uk-flex-middle u-gap-20px">
+                          <div className="uk-text-right">
+                            <span className="bricor-label u-margin-bottom-2px">
                               Total Pagado
                             </span>
                             <span
-                              style={{
-                                fontFamily: 'var(--font-mono)',
-                                fontWeight: 700,
-                                fontSize: '1.25rem',
-                                color: 'var(--color-carbon)',
-                              }}
+                              className="purchases-page-span-06"
                             >
                               {formatCurrency(order.totalAmount)}
                             </span>
@@ -482,8 +395,7 @@ export default function PurchasesPage({ onNavigate, onViewProduct: _onViewProduc
 
                           <button
                             type="button"
-                            className="bricor-btn bricor-btn-secondary bricor-btn-sm"
-                            style={{ padding: '8px 12px', display: 'flex', alignItems: 'center', gap: '6px' }}
+                            className="bricor-btn bricor-btn-secondary bricor-btn-sm purchases-page-button-02"
                             aria-expanded={isExpanded}
                           >
                             <span>{isExpanded ? 'Ocultar' : 'Ver detalle'}</span>
@@ -495,43 +407,39 @@ export default function PurchasesPage({ onNavigate, onViewProduct: _onViewProduc
                       {/* Vista de detalle desplegable */}
                       {isExpanded && (
                         <div
-                          style={{
-                            padding: '24px',
-                            borderTop: '1px solid var(--color-piedra-light)',
-                            backgroundColor: '#FFFFFF',
-                          }}
+                          className="purchases-page-div-11"
                         >
-                          <h4 style={{ margin: '0 0 16px 0', fontSize: '1rem', borderBottom: '1px solid var(--color-piedra-light)', paddingBottom: '8px' }}>
+                          <h4 className="purchases-page-h4-01">
                             Artículos en esta orden ({order.items?.length || 0})
                           </h4>
 
-                          <div style={{ marginBottom: '20px' }}>
-                            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 'var(--text-sm)' }}>
+                          <div className="uk-margin-bottom">
+                            <table className="purchases-page-table-01">
                               <thead>
-                                <tr style={{ borderBottom: '2px solid var(--color-piedra)', textAlign: 'left', color: 'var(--color-oliva)', fontSize: 'var(--text-xs)' }}>
-                                  <th style={{ padding: '8px 4px' }}>Producto</th>
-                                  <th style={{ padding: '8px 4px', textAlign: 'center' }}>SKU</th>
-                                  <th style={{ padding: '8px 4px', textAlign: 'right' }}>Cant.</th>
-                                  <th style={{ padding: '8px 4px', textAlign: 'right' }}>Precio Unit.</th>
-                                  <th style={{ padding: '8px 4px', textAlign: 'right' }}>Total</th>
+                                <tr className="uk-text-left purchases-page-tr-01">
+                                  <th className="u-padding-8px-4px">Producto</th>
+                                  <th className="uk-text-center u-padding-8px-4px">SKU</th>
+                                  <th className="uk-text-right u-padding-8px-4px">Cant.</th>
+                                  <th className="uk-text-right u-padding-8px-4px">Precio Unit.</th>
+                                  <th className="uk-text-right u-padding-8px-4px">Total</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 {order.items?.map((it) => (
-                                  <tr key={it.productId} style={{ borderBottom: '1px solid var(--color-piedra-light)' }}>
-                                    <td style={{ padding: '12px 4px', fontWeight: 500 }}>
+                                  <tr key={it.productId} className="u-border-bottom-1px-solid-piedra-light">
+                                    <td className="purchases-page-td-01">
                                       {it.productName}
                                     </td>
-                                    <td style={{ padding: '12px 4px', textAlign: 'center', fontFamily: 'var(--font-mono)', fontSize: 'var(--text-xs)', color: 'var(--color-oliva)' }}>
+                                    <td className="uk-text-center purchases-page-td-02">
                                       {it.productSku}
                                     </td>
-                                    <td style={{ padding: '12px 4px', textAlign: 'right', fontFamily: 'var(--font-mono)' }}>
+                                    <td className="uk-text-right purchases-page-td-03">
                                       {it.quantity}
                                     </td>
-                                    <td style={{ padding: '12px 4px', textAlign: 'right', fontFamily: 'var(--font-mono)' }}>
+                                    <td className="uk-text-right purchases-page-td-03">
                                       {formatCurrency(it.unitPrice)}
                                     </td>
-                                    <td style={{ padding: '12px 4px', textAlign: 'right', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
+                                    <td className="uk-text-right purchases-page-td-04">
                                       {formatCurrency(it.lineTotal)}
                                     </td>
                                   </tr>
@@ -541,24 +449,24 @@ export default function PurchasesPage({ onNavigate, onViewProduct: _onViewProduc
                           </div>
 
                           {/* Fila de entrega y resumen */}
-                          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', paddingTop: '16px', borderTop: '1px dashed var(--color-piedra)' }}>
+                          <div className="purchases-page-div-12">
                             <div>
                               <span className="bricor-label">Modalidad de Despacho</span>
-                              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px', fontSize: 'var(--text-sm)' }}>
+                              <div className="uk-flex uk-flex-middle purchases-page-div-13">
                                 {order.shippingMethod === 'pickup' ? (
                                   <>
-                                    <Store size={18} style={{ color: 'var(--color-oxido)' }} />
+                                    <Store size={18} className="u-color-oxido" />
                                     <span>Retiro en mostrador Almacén BRICOR</span>
                                   </>
                                 ) : (
                                   <>
-                                    <Truck size={18} style={{ color: 'var(--color-carbon)' }} />
+                                    <Truck size={18} className="u-color-carbon" />
                                     <span>Despacho a obra / Domicilio ({order.shippingCity || 'Colombia'})</span>
                                   </>
                                 )}
                               </div>
                               {order.notes && (
-                                <p style={{ fontSize: 'var(--text-xs)', color: 'var(--color-oliva)', marginTop: '6px' }}>
+                                <p className="purchases-page-p-03">
                                   <strong>Notas:</strong> {order.notes}
                                 </p>
                               )}
@@ -566,22 +474,22 @@ export default function PurchasesPage({ onNavigate, onViewProduct: _onViewProduc
 
                             <div>
                               <span className="bricor-label">Pasarela Wompi Colombia</span>
-                              <div style={{ marginTop: '4px', fontSize: 'var(--text-xs)', color: 'var(--color-oliva)' }}>
-                                <div>Referencia: <code style={{ fontFamily: 'var(--font-mono)' }}>{order.wompiReference}</code></div>
+                              <div className="purchases-page-div-14">
+                                <div>Referencia: <code className="u-font-family-mono">{order.wompiReference}</code></div>
                                 {order.wompiTransactionId && (
-                                  <div>ID Transacción: <code style={{ fontFamily: 'var(--font-mono)' }}>{order.wompiTransactionId}</code></div>
+                                  <div>ID Transacción: <code className="u-font-family-mono">{order.wompiTransactionId}</code></div>
                                 )}
                               </div>
                             </div>
 
-                            <div style={{ textAlign: 'right' }}>
-                              <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-oliva)', marginBottom: '4px' }}>
+                            <div className="uk-text-right">
+                              <div className="purchases-page-div-15">
                                 Subtotal: {formatCurrency(order.subtotal)}
                               </div>
-                              <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-oliva)', marginBottom: '6px' }}>
+                              <div className="purchases-page-div-16">
                                 Despacho: {order.shippingFee === 0 ? 'GRATIS' : formatCurrency(order.shippingFee)}
                               </div>
-                              <div style={{ fontSize: '1.25rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--color-carbon)' }}>
+                              <div className="purchases-page-div-17">
                                 Total: {formatCurrency(order.totalAmount)}
                               </div>
                             </div>

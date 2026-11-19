@@ -29,7 +29,7 @@ export default function MainNavigation({ activeCategory, onSelectCategory }) {
                   onSelectCategory(cat.id);
                 }}
               >
-                {cat.name}
+                {cat.shortName || cat.name}
               </a>
             </li>
           ))}

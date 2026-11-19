@@ -32,41 +32,19 @@ export default function ProductFilters({
 
   return (
     <div
-      style={{
-        background: 'var(--color-marfil-card)',
-        border: '1px solid var(--color-piedra-light)',
-        borderRadius: 'var(--radius-xs)',
-        padding: 'var(--space-5)',
-      }}
+      className="product-filters-div-01"
     >
       <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: 'var(--space-4)',
-          borderBottom: '1px solid var(--color-piedra-light)',
-          paddingBottom: 'var(--space-2)',
-        }}
+        className="uk-flex uk-flex-between uk-flex-middle product-filters-div-02"
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <Filter size={16} style={{ color: 'var(--color-oxido)' }} />
-          <h4 style={{ margin: 0, fontSize: '1.1rem' }}>Filtros</h4>
+        <div className="uk-flex uk-flex-middle u-gap-8px">
+          <Filter size={16} className="u-color-oxido" />
+          <h4 className="uk-margin-remove u-font-size-1-1rem">Filtros</h4>
         </div>
         <button
           type="button"
           onClick={onReset}
-          style={{
-            background: 'none',
-            border: 'none',
-            color: 'var(--color-oliva)',
-            fontSize: 'var(--text-xs)',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '4px',
-            fontFamily: 'var(--font-mono)',
-          }}
+          className="uk-flex uk-flex-middle product-filters-button-01"
           title="Restablecer filtros"
         >
           <RotateCcw size={12} />
@@ -134,11 +112,11 @@ export default function ProductFilters({
 
       {/* Precio Máximo */}
       <div className="bricor-form-group">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div className="uk-flex uk-flex-between uk-flex-middle">
           <label className="bricor-label" htmlFor="filter-price">
             Presupuesto máx.
           </label>
-          <span style={{ fontSize: 'var(--text-xs)', fontFamily: 'var(--font-mono)', color: 'var(--color-carbon)' }}>
+          <span className="product-filters-span-01">
             {filters.maxPrice ? formatCurrency(filters.maxPrice) : 'Sin límite'}
           </span>
         </div>
@@ -150,22 +128,22 @@ export default function ProductFilters({
           step={25000}
           value={filters.maxPrice || 1000000}
           onChange={handlePriceChange}
-          style={{ width: '100%', accentColor: 'var(--color-oxido)' }}
+          className="product-filters-input-01"
         />
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--color-piedra-dark)' }}>
+        <div className="uk-flex uk-flex-between product-filters-div-03">
           <span>$ 50.000</span>
           <span>$ 1.000.000</span>
         </div>
       </div>
 
       {/* Disponibilidad inmediata */}
-      <div style={{ marginTop: 'var(--space-4)', paddingTop: 'var(--space-3)', borderTop: '1px dashed var(--color-piedra-light)' }}>
-        <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: 'var(--text-sm)', color: 'var(--color-carbon)' }}>
+      <div className="product-filters-div-04">
+        <label className="uk-flex uk-flex-middle product-filters-label-01">
           <input
             type="checkbox"
             checked={!!filters.inStockOnly}
             onChange={handleStockChange}
-            style={{ accentColor: 'var(--color-oxido)' }}
+            className="u-accent-color-oxido"
           />
           <span>Solo artículos en inventario</span>
         </label>

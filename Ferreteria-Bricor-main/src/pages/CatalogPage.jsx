@@ -80,37 +80,27 @@ export default function CatalogPage({
   const currentCategoryObj = CATEGORIES.find((c) => c.id === filters.categoryId);
 
   return (
-    <div style={{ padding: '36px 0 64px' }}>
+    <div className="u-padding-36px-0-64px">
       <div className="uk-container">
         {/* Cabecera de Catálogo */}
-        <div style={{ marginBottom: '28px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+        <div className="u-margin-bottom-28px">
+          <div className="uk-flex uk-flex-middle footer-div-04">
             <button
               type="button"
               onClick={onBackHome}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: 'var(--color-oliva)',
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '4px',
-                fontSize: 'var(--text-xs)',
-                fontFamily: 'var(--font-mono)',
-              }}
+              className="uk-flex-inline uk-flex-middle catalog-page-button-01"
             >
               <ArrowLeft size={13} />
               <span>Volver a Inicio</span>
             </button>
-            <span style={{ color: 'var(--color-piedra)' }}>/</span>
-            <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-carbon)' }}>
+            <span className="u-color-piedra">/</span>
+            <span className="catalog-page-span-01">
               Catálogo General
             </span>
             {currentCategoryObj && (
               <>
-                <span style={{ color: 'var(--color-piedra)' }}>/</span>
-                <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-oxido)', fontWeight: 600 }}>
+                <span className="u-color-piedra">/</span>
+                <span className="catalog-page-span-02">
                   {currentCategoryObj.name}
                 </span>
               </>
@@ -118,38 +108,23 @@ export default function CatalogPage({
           </div>
 
           <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-end',
-              flexWrap: 'wrap',
-              gap: '16px',
-              borderBottom: '2px solid var(--color-carbon)',
-              paddingBottom: '16px',
-            }}
+            className="uk-flex uk-flex-between uk-flex-bottom uk-flex-wrap catalog-page-div-01"
           >
             <div>
               <span className="bricor-section-stamp">[ CATÁLOGO TÉCNICO OFICIAL ]</span>
-              <h1 style={{ margin: '4px 0 0 0' }}>
+              <h1 className="u-margin-4px-0-0-0">
                 {currentCategoryObj ? currentCategoryObj.name : 'Catálogo de Ferretería'}
               </h1>
               {currentCategoryObj && (
-                <p style={{ margin: '6px 0 0 0', color: 'var(--color-oliva)', fontSize: 'var(--text-sm)' }}>
+                <p className="catalog-page-p-01">
                   {currentCategoryObj.description}
                 </p>
               )}
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div className="uk-flex uk-flex-middle u-gap-12px">
               <span
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: 'var(--text-xs)',
-                  color: 'var(--color-piedra-dark)',
-                  background: 'var(--color-marfil-muted)',
-                  padding: '4px 10px',
-                  borderRadius: 'var(--radius-xs)',
-                }}
+                className="catalog-page-span-03"
               >
                 {products.length} artículos encontrados
               </span>
@@ -171,7 +146,7 @@ export default function CatalogPage({
         <div className="uk-grid uk-grid-medium" data-uk-grid>
           {/* Columna Filtros en Desktop */}
           <div className="uk-width-1-4@m uk-visible@m">
-            <div style={{ position: 'sticky', top: '90px' }}>
+            <div className="catalog-page-div-02">
               <ProductFilters
                 filters={filters}
                 onChange={setFilters}
@@ -183,7 +158,7 @@ export default function CatalogPage({
 
           {/* Filtros colapsables en móvil */}
           {showMobileFilters && (
-            <div className="uk-width-1-1 uk-hidden@m" style={{ marginBottom: '24px' }}>
+            <div className="uk-width-1-1 uk-hidden@m u-margin-bottom-24px">
               <ProductFilters
                 filters={filters}
                 onChange={(f) => {
@@ -200,16 +175,7 @@ export default function CatalogPage({
           <div className="uk-width-expand@m">
             {filters.searchQuery && (
               <div
-                style={{
-                  padding: '10px 16px',
-                  background: 'var(--color-marfil-muted)',
-                  borderRadius: 'var(--radius-xs)',
-                  marginBottom: '20px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  fontSize: 'var(--text-sm)',
-                }}
+                className="uk-margin-bottom uk-flex uk-flex-between uk-flex-middle catalog-page-div-03"
               >
                 <span>
                   Resultados para: <strong>"{filters.searchQuery}"</strong>
@@ -217,14 +183,7 @@ export default function CatalogPage({
                 <button
                   type="button"
                   onClick={() => setFilters({ ...filters, searchQuery: '' })}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: 'var(--color-oxido)',
-                    cursor: 'pointer',
-                    fontSize: 'var(--text-xs)',
-                    textDecoration: 'underline',
-                  }}
+                  className="catalog-page-button-02"
                 >
                   Quitar búsqueda
                 </button>

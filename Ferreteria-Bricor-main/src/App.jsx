@@ -48,7 +48,7 @@ export default function App() {
 
   return (
     <CartProvider>
-      <div className="bricor-app" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <div className="bricor-app app-div-01">
         {/* Barra superior de anuncios */}
         <AnnouncementBar />
 
@@ -67,7 +67,7 @@ export default function App() {
         />
 
         {/* Contenido dinámico de la página */}
-        <main style={{ flex: 1 }}>
+        <main className="uk-flex-1">
           {currentPage === 'home' && (
             <HomePage
               onNavigate={handleNavigate}

@@ -20,11 +20,11 @@ export default function CartPage({ onNavigate, onViewProduct }) {
 
   if (items.length === 0) {
     return (
-      <div style={{ padding: '80px 0' }}>
-        <div className="uk-container" style={{ textAlign: 'center', maxWidth: '560px' }}>
-          <ShoppingBag size={56} style={{ color: 'var(--color-piedra)', marginBottom: '20px' }} />
-          <h2 style={{ marginBottom: '12px' }}>Tu carrito está actualmente vacío</h2>
-          <p style={{ color: 'var(--color-oliva)', fontSize: 'var(--text-base)', lineHeight: '1.6', marginBottom: '32px' }}>
+      <div className="u-padding-80px-0">
+        <div className="uk-container uk-text-center u-max-width-560px">
+          <ShoppingBag size={56} className="uk-margin-bottom u-color-piedra" />
+          <h2 className="u-margin-bottom-12px">Tu carrito está actualmente vacío</h2>
+          <p className="cart-page-p-01">
             Aún no has agregado herramientas, fijaciones o materiales a tu pedido. Explora nuestro catálogo con inventario disponible para entrega.
           </p>
           <Button variant="primary" icon={ArrowRight} onClick={() => onNavigate('catalog')}>
@@ -36,39 +36,20 @@ export default function CartPage({ onNavigate, onViewProduct }) {
   }
 
   return (
-    <div style={{ padding: '40px 0 80px' }}>
+    <div className="u-padding-40px-0-80px">
       <div className="uk-container">
         {/* Cabecera */}
         <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'baseline',
-            borderBottom: '2px solid var(--color-carbon)',
-            paddingBottom: '16px',
-            marginBottom: '32px',
-            flexWrap: 'wrap',
-            gap: '16px',
-          }}
+          className="uk-flex uk-flex-between uk-flex-wrap cart-page-div-01"
         >
           <div>
             <span className="bricor-label">Resumen de Compras</span>
-            <h1 style={{ margin: '4px 0 0 0' }}>Carrito de Compras ({totalItemsCount} artículos)</h1>
+            <h1 className="u-margin-4px-0-0-0">Carrito de Compras ({totalItemsCount} artículos)</h1>
           </div>
           <button
             type="button"
             onClick={clearCart}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: 'var(--color-error)',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              fontSize: 'var(--text-xs)',
-              fontFamily: 'var(--font-mono)',
-            }}
+            className="uk-flex uk-flex-middle cart-page-button-01"
           >
             <Trash2 size={13} />
             <span>Vaciar todo el carrito</span>
@@ -79,12 +60,7 @@ export default function CartPage({ onNavigate, onViewProduct }) {
           {/* Listado de Productos */}
           <div className="uk-width-expand@m">
             <div
-              style={{
-                backgroundColor: 'var(--color-marfil-card)',
-                border: '1px solid var(--color-piedra-light)',
-                borderRadius: 'var(--radius-xs)',
-                padding: '24px',
-              }}
+              className="cart-page-div-02"
             >
               {items.map((item) => (
                 <CartItem
@@ -96,7 +72,7 @@ export default function CartPage({ onNavigate, onViewProduct }) {
                 />
               ))}
 
-              <div style={{ marginTop: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div className="uk-flex uk-flex-between uk-flex-middle u-margin-top-24px">
                 <Button
                   variant="secondary"
                   size="sm"
@@ -112,29 +88,22 @@ export default function CartPage({ onNavigate, onViewProduct }) {
           {/* Resumen y Totales */}
           <div className="uk-width-1-3@m">
             <div
-              style={{
-                backgroundColor: 'var(--color-marfil-card)',
-                border: '1px solid var(--color-piedra-light)',
-                borderRadius: 'var(--radius-xs)',
-                padding: '24px',
-                position: 'sticky',
-                top: '90px',
-              }}
+              className="cart-page-div-03"
             >
-              <h3 style={{ margin: '0 0 16px 0', fontSize: '1.25rem', borderBottom: '1px solid var(--color-piedra-light)', paddingBottom: '8px' }}>
+              <h3 className="cart-page-h3-01">
                 Total del Pedido
               </h3>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px', fontSize: 'var(--text-sm)' }}>
-                <span style={{ color: 'var(--color-oliva)' }}>Subtotal artículos:</span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
+              <div className="uk-flex uk-flex-between cart-page-div-04">
+                <span className="u-color-oliva">Subtotal artículos:</span>
+                <span className="cart-page-span-01">
                   {formatCurrency(subtotal)}
                 </span>
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px', fontSize: 'var(--text-sm)' }}>
-                <span style={{ color: 'var(--color-oliva)' }}>Despacho estimado:</span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600, color: estimatedShipping === 0 ? 'var(--color-success)' : 'var(--color-carbon)' }}>
+              <div className="uk-flex uk-flex-between cart-page-div-05">
+                <span className="u-color-oliva">Despacho estimado:</span>
+                <span className="cart-page-span-01" style={{ color: estimatedShipping === 0 ? 'var(--color-success)' : 'var(--color-carbon)' }}>
                   {estimatedShipping === 0
                     ? shippingMethod === 'pickup'
                       ? 'GRATIS (Retiro en punto BRICOR)'
@@ -144,21 +113,13 @@ export default function CartPage({ onNavigate, onViewProduct }) {
               </div>
 
               <div
-                style={{
-                  borderTop: '2px solid var(--color-carbon)',
-                  paddingTop: '16px',
-                  marginBottom: '24px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'baseline',
-                }}
+                className="uk-flex uk-flex-between cart-page-div-06"
               >
-                <span className="font-editorial" style={{ fontSize: '1.25rem' }}>
+                <span className="font-editorial u-font-size-1-25rem">
                   Total a Pagar
                 </span>
                 <span
-                  className="font-editorial"
-                  style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--color-carbon)' }}
+                  className="font-editorial cart-page-span-02"
                 >
                   {formatCurrency(grandTotal)}
                 </span>
@@ -173,13 +134,13 @@ export default function CartPage({ onNavigate, onViewProduct }) {
                 Proceder al Checkout
               </Button>
 
-              <div style={{ marginTop: '20px', fontSize: 'var(--text-xs)', color: 'var(--color-oliva)', lineHeight: '1.5' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                  <ShieldCheck size={16} style={{ color: 'var(--color-oxido)' }} />
+              <div className="uk-margin-top cart-page-div-07">
+                <div className="uk-flex uk-flex-middle footer-div-04">
+                  <ShieldCheck size={16} className="u-color-oxido" />
                   <span>Factura legal electrónica disponible con NIT</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Truck size={16} style={{ color: 'var(--color-oliva)' }} />
+                <div className="uk-flex uk-flex-middle u-gap-8px">
+                  <Truck size={16} className="u-color-oliva" />
                   <span>Entregas consolidadas en obra</span>
                 </div>
               </div>

@@ -133,10 +133,10 @@ export default function CheckoutPage({ onNavigate }) {
 
   if (items.length === 0 && paymentState === 'idle') {
     return (
-      <div style={{ padding: '80px 0', textAlign: 'center' }}>
+      <div className="uk-text-center u-padding-80px-0">
         <div className="uk-container">
           <h2>No hay artículos en tu pedido</h2>
-          <p style={{ color: 'var(--color-oliva)', marginBottom: '24px' }}>
+          <p className="checkout-page-p-01">
             Tu carrito está vacío. Agrega productos para completar el proceso de pedido.
           </p>
           <Button variant="primary" onClick={() => onNavigate('catalog')}>
@@ -350,22 +350,15 @@ export default function CheckoutPage({ onNavigate }) {
   // ESTADO: Preparando pedido
   if (paymentState === 'preparing_order') {
     return (
-      <div style={{ padding: '80px 0 96px' }}>
-        <div className="uk-container" style={{ maxWidth: '560px' }}>
+      <div className="u-padding-80px-0-96px">
+        <div className="uk-container u-max-width-560px">
           <div
-            style={{
-              backgroundColor: 'var(--color-marfil-card)',
-              border: '1px solid var(--color-piedra-light)',
-              borderTop: '5px solid var(--color-carbon)',
-              borderRadius: 'var(--radius-xs)',
-              padding: '48px 32px',
-              textAlign: 'center',
-            }}
+            className="uk-text-center checkout-page-div-01"
           >
-            <div data-uk-spinner="ratio: 2" style={{ color: 'var(--color-carbon)', marginBottom: '24px' }}></div>
+            <div data-uk-spinner="ratio: 2" className="checkout-page-div-02"></div>
             <span className="bricor-label">Paso 1 de 3</span>
-            <h2 style={{ fontSize: '1.75rem', margin: '8px 0 16px 0' }}>Preparando Pedido</h2>
-            <p style={{ color: 'var(--color-oliva)', fontSize: 'var(--text-sm)', lineHeight: '1.6' }}>
+            <h2 className="checkout-page-h2-01">Preparando Pedido</h2>
+            <p className="checkout-page-p-02">
               Validando disponibilidad de inventario en almacén y registrando orden en servidor...
             </p>
           </div>
@@ -377,22 +370,15 @@ export default function CheckoutPage({ onNavigate }) {
   // ESTADO: Preparando pago
   if (paymentState === 'preparing_payment') {
     return (
-      <div style={{ padding: '80px 0 96px' }}>
-        <div className="uk-container" style={{ maxWidth: '560px' }}>
+      <div className="u-padding-80px-0-96px">
+        <div className="uk-container u-max-width-560px">
           <div
-            style={{
-              backgroundColor: 'var(--color-marfil-card)',
-              border: '1px solid var(--color-piedra-light)',
-              borderTop: '5px solid var(--color-oxido)',
-              borderRadius: 'var(--radius-xs)',
-              padding: '48px 32px',
-              textAlign: 'center',
-            }}
+            className="uk-text-center checkout-page-div-03"
           >
-            <div data-uk-spinner="ratio: 2" style={{ color: 'var(--color-oxido)', marginBottom: '24px' }}></div>
-            <span className="bricor-label" style={{ color: 'var(--color-oxido)' }}>Paso 2 de 3</span>
-            <h2 style={{ fontSize: '1.75rem', margin: '8px 0 16px 0' }}>Preparando Pago Seguro</h2>
-            <p style={{ color: 'var(--color-oliva)', fontSize: 'var(--text-sm)', lineHeight: '1.6' }}>
+            <div data-uk-spinner="ratio: 2" className="checkout-page-div-04"></div>
+            <span className="bricor-label u-color-oxido">Paso 2 de 3</span>
+            <h2 className="checkout-page-h2-01">Preparando Pago Seguro</h2>
+            <p className="checkout-page-p-02">
               Calculando totales y generando firma criptográfica de integridad SHA-256 para Wompi...
             </p>
           </div>
@@ -404,25 +390,18 @@ export default function CheckoutPage({ onNavigate }) {
   // ESTADO: Abriendo Wompi
   if (paymentState === 'opening_widget') {
     return (
-      <div style={{ padding: '80px 0 96px' }}>
-        <div className="uk-container" style={{ maxWidth: '560px' }}>
+      <div className="u-padding-80px-0-96px">
+        <div className="uk-container u-max-width-560px">
           <div
-            style={{
-              backgroundColor: 'var(--color-marfil-card)',
-              border: '1px solid var(--color-piedra-light)',
-              borderTop: '5px solid var(--color-oxido)',
-              borderRadius: 'var(--radius-xs)',
-              padding: '48px 32px',
-              textAlign: 'center',
-            }}
+            className="uk-text-center checkout-page-div-03"
           >
-            <div data-uk-spinner="ratio: 2" style={{ color: 'var(--color-oxido)', marginBottom: '24px' }}></div>
-            <span className="bricor-label" style={{ color: 'var(--color-oxido)' }}>Paso 3 de 3</span>
-            <h2 style={{ fontSize: '1.75rem', margin: '8px 0 16px 0' }}>Abriendo Pasarela Wompi</h2>
-            <p style={{ color: 'var(--color-oliva)', fontSize: 'var(--text-sm)', lineHeight: '1.6' }}>
+            <div data-uk-spinner="ratio: 2" className="checkout-page-div-04"></div>
+            <span className="bricor-label u-color-oxido">Paso 3 de 3</span>
+            <h2 className="checkout-page-h2-01">Abriendo Pasarela Wompi</h2>
+            <p className="checkout-page-p-02">
               Cargando el Widget oficial de Wompi Colombia. Completa tu pago en la ventana emergente...
             </p>
-            <div style={{ marginTop: '24px' }}>
+            <div className="u-margin-top-24px">
               <Button variant="secondary" onClick={() => setPaymentState('idle')}>
                 Volver al formulario
               </Button>
@@ -436,28 +415,21 @@ export default function CheckoutPage({ onNavigate }) {
   // ESTADO: Esperando confirmación
   if (paymentState === 'awaiting_confirmation') {
     return (
-      <div style={{ padding: '80px 0 96px' }}>
-        <div className="uk-container" style={{ maxWidth: '580px' }}>
+      <div className="u-padding-80px-0-96px">
+        <div className="uk-container u-max-width-580px">
           <div
-            style={{
-              backgroundColor: 'var(--color-marfil-card)',
-              border: '1px solid var(--color-piedra-light)',
-              borderTop: '5px solid var(--color-oxido)',
-              borderRadius: 'var(--radius-xs)',
-              padding: '48px 32px',
-              textAlign: 'center',
-            }}
+            className="uk-text-center checkout-page-div-03"
           >
-            <div data-uk-spinner="ratio: 2" style={{ color: 'var(--color-oxido)', marginBottom: '20px' }}></div>
-            <span className="bricor-label" style={{ color: 'var(--color-oxido)' }}>
+            <div data-uk-spinner="ratio: 2" className="uk-margin-bottom u-color-oxido"></div>
+            <span className="bricor-label u-color-oxido">
               Verificación en Curso
             </span>
-            <h2 style={{ fontSize: '1.75rem', margin: '8px 0 16px 0' }}>Esperando Confirmación</h2>
-            <p style={{ color: 'var(--color-carbon)', fontSize: 'var(--text-sm)', lineHeight: '1.6', marginBottom: '24px' }}>
+            <h2 className="checkout-page-h2-01">Esperando Confirmación</h2>
+            <p className="checkout-page-p-03">
               Orden <strong>#{activeOrder?.orderNumber}</strong> ({formatCurrency(activeOrder?.totalAmount)}).
               Verificando conciliación de la transacción con los servidores de BRICOR y Wompi...
             </p>
-            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div className="uk-flex uk-flex-center uk-flex-wrap u-gap-12px">
               <Button
                 variant="primary"
                 disabled={isVerifying}
@@ -490,103 +462,82 @@ export default function CheckoutPage({ onNavigate }) {
     });
 
     return (
-      <div style={{ padding: '48px 0 96px' }}>
-        <div className="uk-container" style={{ maxWidth: '680px' }}>
+      <div className="u-padding-48px-0-96px">
+        <div className="uk-container u-max-width-680px">
           <div
-            style={{
-              backgroundColor: 'var(--color-marfil-card)',
-              border: '1px solid var(--color-piedra-light)',
-              borderTop: '5px solid var(--color-success)',
-              borderRadius: 'var(--radius-xs)',
-              padding: '40px 32px',
-              textAlign: 'center',
-            }}
+            className="uk-text-center checkout-page-div-05"
           >
-            <CheckCircle size={60} style={{ color: 'var(--color-success)', margin: '0 auto 16px' }} />
+            <CheckCircle size={60} className="checkout-page-checkcircle-01" />
             <span
-              className="bricor-badge"
-              style={{
-                backgroundColor: 'rgba(39, 174, 96, 0.12)',
-                color: 'var(--color-success)',
-                border: '1px solid rgba(39, 174, 96, 0.3)',
-                padding: '4px 12px',
-                fontSize: '0.75rem',
-              }}
+              className="bricor-badge checkout-page-span-01"
             >
               Confirmación Verificada Wompi Sandbox
             </span>
 
-            <h1 style={{ fontSize: '2.1rem', margin: '12px 0 8px 0', textTransform: 'uppercase', letterSpacing: '0.02em' }}>
+            <h1 className="uk-text-uppercase checkout-page-h1-01">
               ¡Tu compra fue confirmada!
             </h1>
 
-            <p style={{ color: 'var(--color-oliva)', fontSize: 'var(--text-sm)', marginBottom: '24px' }}>
+            <p className="checkout-page-p-04">
               Gracias por tu compra, <strong>{activeOrder.customerName}</strong>. Tu pedido ha sido conciliado en el almacén oficial de BRICOR.
             </p>
 
             {/* Recuadro de detalles de la orden */}
             <div
-              style={{
-                backgroundColor: '#FFFFFF',
-                border: '1px solid var(--color-piedra-light)',
-                borderRadius: 'var(--radius-xs)',
-                padding: '20px 24px',
-                textAlign: 'left',
-                marginBottom: '24px',
-              }}
+              className="uk-text-left checkout-page-div-06"
             >
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '16px' }}>
+              <div className="checkout-page-div-07">
                 <div>
                   <span className="bricor-label">Número de Pedido</span>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '1.2rem', color: 'var(--color-carbon)' }}>
+                  <div className="checkout-page-div-08">
                     #{activeOrder.orderNumber}
                   </div>
                 </div>
 
                 <div>
                   <span className="bricor-label">Fecha</span>
-                  <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-carbon)' }}>
+                  <div className="catalog-page-span-01">
                     {formattedDate}
                   </div>
                 </div>
 
                 <div>
                   <span className="bricor-label">Total Pagado</span>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '1.3rem', color: 'var(--color-oxido)' }}>
+                  <div className="checkout-page-div-09">
                     {formatCurrency(activeOrder.totalAmount)}
                   </div>
                 </div>
 
                 <div>
                   <span className="bricor-label">Método de Pago</span>
-                  <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-carbon)' }}>
+                  <div className="catalog-page-span-01">
                     Pasarela Wompi Colombia (Ref: <code>{activeOrder.wompiReference}</code>)
                   </div>
                 </div>
               </div>
 
               {/* Información de entrega */}
-              <div style={{ borderTop: '1px dashed var(--color-piedra)', paddingTop: '14px', marginBottom: '16px', fontSize: 'var(--text-xs)' }}>
+              <div className="checkout-page-div-10">
                 <span className="bricor-label">Modalidad de Despacho</span>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px', color: 'var(--color-carbon)', fontWeight: 500 }}>
-                  <Truck size={16} style={{ color: 'var(--color-oxido)' }} />
+                <div className="uk-flex uk-flex-middle checkout-page-div-11">
+                  <Truck size={16} className="u-color-oxido" />
                   <span>{activeOrder.deliveryMethod} — {activeOrder.shippingAddress || 'Dirección de obra registrada'}</span>
                 </div>
               </div>
 
               {/* Resumen de productos */}
               {activeOrder.items && activeOrder.items.length > 0 && (
-                <div style={{ borderTop: '1px solid var(--color-piedra-light)', paddingTop: '14px' }}>
-                  <span className="bricor-label" style={{ marginBottom: '8px' }}>
+                <div className="checkout-page-div-12">
+                  <span className="bricor-label u-margin-bottom-8px">
                     Productos Adquiridos ({activeOrder.items.length})
                   </span>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <div className="uk-flex uk-flex-column u-gap-6px">
                     {activeOrder.items.map((it, idx) => (
-                      <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--text-xs)' }}>
-                        <span style={{ color: 'var(--color-carbon)' }}>
+                      <div key={idx} className="uk-flex uk-flex-between u-font-size-xs">
+                        <span className="u-color-carbon">
                           <strong>{it.quantity}x</strong> {it.name}
                         </span>
-                        <span style={{ fontFamily: 'var(--font-mono)' }}>{formatCurrency(it.lineTotal)}</span>
+                        <span className="u-font-family-mono">{formatCurrency(it.lineTotal)}</span>
                       </div>
                     ))}
                   </div>
@@ -595,19 +546,19 @@ export default function CheckoutPage({ onNavigate }) {
             </div>
 
             {/* Botones de acción */}
-            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div className="uk-flex uk-flex-center uk-flex-wrap u-gap-12px">
               <Button
                 variant="primary"
                 icon={Package}
                 onClick={() => onNavigate('purchases')}
-                style={{ padding: '12px 24px' }}
+                className="u-padding-12px-24px"
               >
                 Ver mis compras
               </Button>
               <Button
                 variant="secondary"
                 onClick={() => onNavigate('catalog')}
-                style={{ padding: '12px 24px' }}
+                className="u-padding-12px-24px"
               >
                 Seguir comprando
               </Button>
@@ -621,46 +572,30 @@ export default function CheckoutPage({ onNavigate }) {
   // ESTADO: Pago Rechazado (Conserva el carrito intacto)
   if (paymentState === 'declined' && activeOrder) {
     return (
-      <div style={{ padding: '64px 0 96px' }}>
-        <div className="uk-container" style={{ maxWidth: '640px' }}>
+      <div className="u-padding-64px-0-96px">
+        <div className="uk-container u-max-width-640px">
           <div
-            style={{
-              backgroundColor: 'var(--color-marfil-card)',
-              border: '1px solid var(--color-piedra-light)',
-              borderTop: '5px solid var(--color-oxido)',
-              borderRadius: 'var(--radius-xs)',
-              padding: '40px',
-              textAlign: 'center',
-            }}
+            className="uk-text-center checkout-page-div-13"
           >
-            <XCircle size={56} style={{ color: 'var(--color-oxido)', margin: '0 auto 16px' }} />
-            <span className="bricor-label" style={{ color: 'var(--color-oxido)' }}>
+            <XCircle size={56} className="checkout-page-xcircle-01" />
+            <span className="bricor-label u-color-oxido">
               Pago No Aprobado
             </span>
-            <h1 style={{ fontSize: '2rem', margin: '8px 0 16px 0' }}>
+            <h1 className="checkout-page-h1-02">
               Transacción Rechazada
             </h1>
 
-            <p style={{ color: 'var(--color-carbon)', fontSize: 'var(--text-base)', lineHeight: '1.6' }}>
+            <p className="checkout-page-p-05">
               La entidad bancaria o el medio de pago rechazó la transacción de la orden <strong>#{activeOrder.orderNumber}</strong>.
             </p>
 
             <div
-              style={{
-                backgroundColor: 'var(--color-marfil)',
-                border: '1px solid var(--color-piedra)',
-                borderRadius: 'var(--radius-xs)',
-                padding: '16px',
-                margin: '24px 0',
-                textAlign: 'left',
-                fontSize: 'var(--text-xs)',
-                color: 'var(--color-oliva)',
-              }}
+              className="uk-text-left checkout-page-div-14"
             >
               <strong>Tu pedido no se ha perdido:</strong> Todos los productos continúan en tu carrito de compras sin alteración. Puedes reintentar utilizando otra tarjeta de crédito, PSE o Nequi.
             </div>
 
-            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div className="uk-flex uk-flex-center uk-flex-wrap u-gap-12px">
               <Button variant="primary" onClick={() => setPaymentState('idle')}>
                 Reintentar con otro medio de pago
               </Button>
@@ -677,46 +612,30 @@ export default function CheckoutPage({ onNavigate }) {
   // ESTADO: Pago Pendiente (Conserva el carrito intacto)
   if (paymentState === 'pending' && activeOrder) {
     return (
-      <div style={{ padding: '64px 0 96px' }}>
-        <div className="uk-container" style={{ maxWidth: '640px' }}>
+      <div className="u-padding-64px-0-96px">
+        <div className="uk-container u-max-width-640px">
           <div
-            style={{
-              backgroundColor: 'var(--color-marfil-card)',
-              border: '1px solid var(--color-piedra-light)',
-              borderTop: '5px solid var(--color-oliva)',
-              borderRadius: 'var(--radius-xs)',
-              padding: '40px',
-              textAlign: 'center',
-            }}
+            className="uk-text-center checkout-page-div-15"
           >
-            <Clock size={56} style={{ color: 'var(--color-oliva)', margin: '0 auto 16px' }} />
-            <span className="bricor-label" style={{ color: 'var(--color-oliva)' }}>
+            <Clock size={56} className="checkout-page-clock-01" />
+            <span className="bricor-label u-color-oliva">
               Pago en Validación
             </span>
-            <h1 style={{ fontSize: '2rem', margin: '8px 0 16px 0' }}>
+            <h1 className="checkout-page-h1-02">
               Pago Pendiente #{activeOrder.orderNumber}
             </h1>
 
-            <p style={{ color: 'var(--color-carbon)', fontSize: 'var(--text-base)', lineHeight: '1.6' }}>
+            <p className="checkout-page-p-05">
               Tu transacción se encuentra en proceso de validación con la red financiera o el corresponsal bancario. Tan pronto como Wompi confirme la recepción, actualizaremos tu despacho.
             </p>
 
             <div
-              style={{
-                backgroundColor: 'var(--color-marfil)',
-                border: '1px solid var(--color-piedra)',
-                borderRadius: 'var(--radius-xs)',
-                padding: '16px',
-                margin: '24px 0',
-                textAlign: 'left',
-                fontSize: 'var(--text-xs)',
-                color: 'var(--color-oliva)',
-              }}
+              className="uk-text-left checkout-page-div-14"
             >
               <strong>Referencia Wompi:</strong> <code>{activeOrder.wompiReference}</code>. Tus artículos continúan reservados en tu pedido.
             </div>
 
-            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div className="uk-flex uk-flex-center uk-flex-wrap u-gap-12px">
               <Button
                 variant="primary"
                 disabled={isVerifying}
@@ -744,47 +663,31 @@ export default function CheckoutPage({ onNavigate }) {
   // ESTADO: Error en la transacción o inicialización (Conserva el carrito intacto)
   if (paymentState === 'error') {
     return (
-      <div style={{ padding: '64px 0 96px' }}>
-        <div className="uk-container" style={{ maxWidth: '640px' }}>
+      <div className="u-padding-64px-0-96px">
+        <div className="uk-container u-max-width-640px">
           <div
-            style={{
-              backgroundColor: 'var(--color-marfil-card)',
-              border: '1px solid var(--color-piedra-light)',
-              borderTop: '5px solid var(--color-oxido)',
-              borderRadius: 'var(--radius-xs)',
-              padding: '40px',
-              textAlign: 'center',
-            }}
+            className="uk-text-center checkout-page-div-13"
           >
-            <AlertTriangle size={56} style={{ color: 'var(--color-oxido)', margin: '0 auto 16px' }} />
-            <span className="bricor-label" style={{ color: 'var(--color-oxido)' }}>
+            <AlertTriangle size={56} className="checkout-page-xcircle-01" />
+            <span className="bricor-label u-color-oxido">
               Incidencia en el Proceso
             </span>
-            <h1 style={{ fontSize: '2rem', margin: '8px 0 16px 0' }}>
+            <h1 className="checkout-page-h1-02">
               No se pudo completar la operación
             </h1>
 
-            <p style={{ color: 'var(--color-carbon)', fontSize: 'var(--text-base)', lineHeight: '1.6' }}>
+            <p className="checkout-page-p-05">
               {errors.submit ||
                 'Ocurrió una interrupción al comunicar con el servidor o la pasarela de pagos. Tus artículos no han sido cobrados.'}
             </p>
 
             <div
-              style={{
-                backgroundColor: 'var(--color-marfil)',
-                border: '1px solid var(--color-piedra)',
-                borderRadius: 'var(--radius-xs)',
-                padding: '16px',
-                margin: '24px 0',
-                textAlign: 'left',
-                fontSize: 'var(--text-xs)',
-                color: 'var(--color-oliva)',
-              }}
+              className="uk-text-left checkout-page-div-14"
             >
               <strong>Tu pedido y carrito están a salvo:</strong> No se ha realizado ningún cobro. Puedes regresar al formulario para reintentar el pago o verificar tus datos.
             </div>
 
-            <div style={{ marginTop: '24px', display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div className="uk-flex uk-flex-center uk-flex-wrap checkout-page-div-16">
               <Button variant="primary" onClick={() => setPaymentState('idle')}>
                 Volver al Formulario
               </Button>
@@ -800,33 +703,23 @@ export default function CheckoutPage({ onNavigate }) {
 
   // ESTADO: Formulario de Checkout (idle)
   return (
-    <div style={{ padding: '36px 0 80px' }}>
+    <div className="u-padding-36px-0-80px">
       <div className="uk-container">
         {/* Volver */}
-        <div style={{ marginBottom: '24px' }}>
+        <div className="u-margin-bottom-24px">
           <button
             type="button"
             onClick={() => onNavigate('cart')}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: 'var(--color-oliva)',
-              cursor: 'pointer',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              fontSize: 'var(--text-sm)',
-              fontFamily: 'var(--font-mono)',
-            }}
+            className="uk-flex-inline uk-flex-middle checkout-page-button-01"
           >
             <ArrowLeft size={14} />
             <span>Volver al carrito</span>
           </button>
         </div>
 
-        <div style={{ borderBottom: '2px solid var(--color-carbon)', paddingBottom: '16px', marginBottom: '32px' }}>
+        <div className="checkout-page-div-17">
           <span className="bricor-label">Finalizar Compra</span>
-          <h1 style={{ margin: '4px 0 0 0' }}>Datos de Entrega y Facturación</h1>
+          <h1 className="u-margin-4px-0-0-0">Datos de Entrega y Facturación</h1>
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -834,21 +727,10 @@ export default function CheckoutPage({ onNavigate }) {
             {/* Formulario */}
             <div className="uk-width-expand@m">
               <div
-                style={{
-                  backgroundColor: 'var(--color-marfil-card)',
-                  border: '1px solid var(--color-piedra-light)',
-                  borderRadius: 'var(--radius-xs)',
-                  padding: '32px',
-                  marginBottom: '24px',
-                }}
+                className="checkout-page-div-18"
               >
                 <h3
-                  style={{
-                    fontSize: '1.25rem',
-                    marginBottom: '20px',
-                    borderBottom: '1px solid var(--color-piedra-light)',
-                    paddingBottom: '8px',
-                  }}
+                  className="uk-margin-bottom checkout-page-h3-01"
                 >
                   1. Información del Cliente / Razón Social
                 </h3>
@@ -903,77 +785,52 @@ export default function CheckoutPage({ onNavigate }) {
                 </div>
 
                 <h3
-                  style={{
-                    fontSize: '1.25rem',
-                    margin: '32px 0 20px 0',
-                    borderBottom: '1px solid var(--color-piedra-light)',
-                    paddingBottom: '8px',
-                  }}
+                  className="checkout-page-h3-02"
                 >
                   2. Método de Despacho
                 </h3>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
+                <div className="checkout-page-div-19">
                   <label
-                    style={{
-                      border:
-                        formData.shippingMethod === 'delivery'
+                    className="uk-flex uk-flex-column checkout-page-label-01" style={{ border: formData.shippingMethod === 'delivery'
                           ? '2px solid var(--color-oxido)'
-                          : '1px solid var(--color-piedra-light)',
-                      borderRadius: 'var(--radius-xs)',
-                      padding: '16px',
-                      cursor: 'pointer',
-                      background: formData.shippingMethod === 'delivery' ? 'var(--color-oxido-light)' : 'transparent',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '6px',
-                    }}
+                          : '1px solid var(--color-piedra-light)', borderRadius: 'var(--radius-xs)', background: formData.shippingMethod === 'delivery' ? 'var(--color-oxido-light)' : 'transparent' }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div className="uk-flex uk-flex-middle u-gap-8px">
                       <input
                         type="radio"
                         name="shippingMethod"
                         value="delivery"
                         checked={formData.shippingMethod === 'delivery'}
                         onChange={handleChange}
-                        style={{ accentColor: 'var(--color-oxido)' }}
+                        className="u-accent-color-oxido"
                       />
-                      <Truck size={18} style={{ color: 'var(--color-oxido)' }} />
-                      <strong style={{ fontSize: 'var(--text-sm)' }}>Despacho a Domicilio / Obra</strong>
+                      <Truck size={18} className="u-color-oxido" />
+                      <strong className="u-font-size-sm">Despacho a Domicilio / Obra</strong>
                     </div>
-                    <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-oliva)', paddingLeft: '24px' }}>
+                    <span className="checkout-page-span-02">
                       Transporte de carga y entregas en destino.
                     </span>
                   </label>
 
                   <label
-                    style={{
-                      border:
-                        formData.shippingMethod === 'pickup'
+                    className="uk-flex uk-flex-column checkout-page-label-01" style={{ border: formData.shippingMethod === 'pickup'
                           ? '2px solid var(--color-oxido)'
-                          : '1px solid var(--color-piedra-light)',
-                      borderRadius: 'var(--radius-xs)',
-                      padding: '16px',
-                      cursor: 'pointer',
-                      background: formData.shippingMethod === 'pickup' ? 'var(--color-oxido-light)' : 'transparent',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '6px',
-                    }}
+                          : '1px solid var(--color-piedra-light)', borderRadius: 'var(--radius-xs)', background: formData.shippingMethod === 'pickup' ? 'var(--color-oxido-light)' : 'transparent' }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div className="uk-flex uk-flex-middle u-gap-8px">
                       <input
                         type="radio"
                         name="shippingMethod"
                         value="pickup"
                         checked={formData.shippingMethod === 'pickup'}
                         onChange={handleChange}
-                        style={{ accentColor: 'var(--color-oxido)' }}
+                        className="u-accent-color-oxido"
                       />
-                      <Store size={18} style={{ color: 'var(--color-oliva)' }} />
-                      <strong style={{ fontSize: 'var(--text-sm)' }}>Retiro en Punto BRICOR</strong>
+                      <Store size={18} className="u-color-oliva" />
+                      <strong className="u-font-size-sm">Retiro en Punto BRICOR</strong>
                     </div>
-                    <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-oliva)', paddingLeft: '24px' }}>
+                    <span className="checkout-page-span-02">
                       Sin costo de envío en almacén principal.
                     </span>
                   </label>
@@ -1017,19 +874,9 @@ export default function CheckoutPage({ onNavigate }) {
 
               {/* Nota de pasarela técnica */}
               <div
-                style={{
-                  backgroundColor: 'var(--color-marfil-muted)',
-                  border: '1px dashed var(--color-piedra)',
-                  padding: '16px 20px',
-                  borderRadius: 'var(--radius-xs)',
-                  fontSize: 'var(--text-xs)',
-                  color: 'var(--color-oliva)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                }}
+                className="uk-flex uk-flex-middle checkout-page-div-20"
               >
-                <ShieldCheck size={20} style={{ color: 'var(--color-oxido)', flexShrink: 0 }} />
+                <ShieldCheck size={20} className="checkout-page-shieldcheck-01" />
                 <span>
                   <strong>Pasarela oficial Wompi Sandbox:</strong> Tu pago se procesará a través del Widget seguro de Wompi Colombia (Bancolombia, Nequi, PSE, Tarjetas de Crédito/Débito) con firma de integridad SHA-256 generada en servidor.
                 </span>
@@ -1039,48 +886,26 @@ export default function CheckoutPage({ onNavigate }) {
             {/* Resumen lateral de la orden */}
             <div className="uk-width-1-3@m">
               <div
-                style={{
-                  backgroundColor: 'var(--color-marfil-card)',
-                  border: '1px solid var(--color-piedra-light)',
-                  borderRadius: 'var(--radius-xs)',
-                  padding: '24px',
-                  position: 'sticky',
-                  top: '90px',
-                }}
+                className="cart-page-div-03"
               >
                 <h3
-                  style={{
-                    margin: '0 0 16px 0',
-                    fontSize: '1.25rem',
-                    borderBottom: '1px solid var(--color-piedra-light)',
-                    paddingBottom: '8px',
-                  }}
+                  className="cart-page-h3-01"
                 >
                   Resumen ({totalItemsCount} artículos)
                 </h3>
 
                 <div
-                  style={{
-                    maxHeight: '200px',
-                    overflowY: 'auto',
-                    marginBottom: '16px',
-                    borderBottom: '1px solid var(--color-piedra-light)',
-                  }}
+                  className="checkout-page-div-21"
                 >
                   {items.map((it) => (
                     <div
                       key={it.product.id}
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        fontSize: 'var(--text-xs)',
-                        padding: '6px 0',
-                      }}
+                      className="uk-flex uk-flex-between checkout-page-div-22"
                     >
-                      <span style={{ color: 'var(--color-carbon)' }}>
+                      <span className="u-color-carbon">
                         {it.quantity}x {it.product.name}
                       </span>
-                      <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
+                      <span className="cart-page-span-01">
                         {formatCurrency(it.product.price * it.quantity)}
                       </span>
                     </div>
@@ -1088,27 +913,17 @@ export default function CheckoutPage({ onNavigate }) {
                 </div>
 
                 <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    marginBottom: '8px',
-                    fontSize: 'var(--text-sm)',
-                  }}
+                  className="uk-flex uk-flex-between checkout-page-div-23"
                 >
-                  <span style={{ color: 'var(--color-oliva)' }}>Subtotal:</span>
-                  <span style={{ fontFamily: 'var(--font-mono)' }}>{formatCurrency(subtotal)}</span>
+                  <span className="u-color-oliva">Subtotal:</span>
+                  <span className="u-font-family-mono">{formatCurrency(subtotal)}</span>
                 </div>
 
                 <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    marginBottom: '16px',
-                    fontSize: 'var(--text-sm)',
-                  }}
+                  className="uk-flex uk-flex-between cart-page-div-05"
                 >
-                  <span style={{ color: 'var(--color-oliva)' }}>Despacho:</span>
-                  <span style={{ fontFamily: 'var(--font-mono)' }}>
+                  <span className="u-color-oliva">Despacho:</span>
+                  <span className="u-font-family-mono">
                     {formData.shippingMethod === 'pickup'
                       ? 'GRATIS (Retiro)'
                       : estimatedShipping === 0
@@ -1118,21 +933,13 @@ export default function CheckoutPage({ onNavigate }) {
                 </div>
 
                 <div
-                  style={{
-                    borderTop: '2px solid var(--color-carbon)',
-                    paddingTop: '16px',
-                    marginBottom: '24px',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'baseline',
-                  }}
+                  className="uk-flex uk-flex-between cart-page-div-06"
                 >
-                  <span className="font-editorial" style={{ fontSize: '1.25rem' }}>
+                  <span className="font-editorial u-font-size-1-25rem">
                     Total Pedido
                   </span>
                   <span
-                    className="font-editorial"
-                    style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--color-carbon)' }}
+                    className="font-editorial cart-page-span-02"
                   >
                     {formatCurrency(grandTotal)}
                   </span>

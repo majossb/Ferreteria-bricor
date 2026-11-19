@@ -53,9 +53,9 @@ export default function ProductPage({ productId, onBackToCatalog, onViewProduct 
 
   if (loading) {
     return (
-      <div style={{ textAlign: 'center', padding: '100px 0' }}>
-        <div data-uk-spinner="ratio: 2" style={{ color: 'var(--color-oxido)' }}></div>
-        <p style={{ marginTop: '16px', color: 'var(--color-oliva)', fontFamily: 'var(--font-mono)' }}>
+      <div className="uk-text-center u-padding-100px-0">
+        <div data-uk-spinner="ratio: 2" className="u-color-oxido"></div>
+        <p className="product-page-p-01">
           Cargando especificaciones técnicas...
         </p>
       </div>
@@ -64,9 +64,9 @@ export default function ProductPage({ productId, onBackToCatalog, onViewProduct 
 
   if (!product) {
     return (
-      <div className="uk-container" style={{ padding: '64px 0', textAlign: 'center' }}>
+      <div className="uk-container uk-text-center u-padding-64px-0">
         <h3>Producto no encontrado</h3>
-        <p style={{ color: 'var(--color-oliva)' }}>
+        <p className="u-color-oliva">
           La referencia solicitada no existe o no se encuentra activa en el catálogo.
         </p>
         <Button variant="primary" onClick={onBackToCatalog}>
@@ -77,24 +77,14 @@ export default function ProductPage({ productId, onBackToCatalog, onViewProduct 
   }
 
   return (
-    <div style={{ padding: '32px 0 64px' }}>
+    <div className="u-padding-32px-0-64px">
       <div className="uk-container">
         {/* Breadcrumb de navegación */}
-        <div style={{ marginBottom: '24px' }}>
+        <div className="u-margin-bottom-24px">
           <button
             type="button"
             onClick={onBackToCatalog}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: 'var(--color-oliva)',
-              cursor: 'pointer',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              fontSize: 'var(--text-sm)',
-              fontFamily: 'var(--font-mono)',
-            }}
+            className="uk-flex-inline uk-flex-middle checkout-page-button-01"
           >
             <ArrowLeft size={14} />
             <span>Volver al Catálogo</span>
@@ -103,43 +93,20 @@ export default function ProductPage({ productId, onBackToCatalog, onViewProduct 
 
         {/* Ficha Principal de Producto */}
         <div
-          className="uk-grid uk-grid-large"
+          className="uk-grid uk-grid-large product-page-div-01"
           data-uk-grid
-          style={{
-            backgroundColor: 'var(--color-marfil-card)',
-            border: '1px solid var(--color-piedra-light)',
-            borderRadius: 'var(--radius-xs)',
-            padding: '32px 24px',
-            marginBottom: '48px',
-          }}
         >
           {/* Galería de imágenes */}
           <div className="uk-width-1-1 uk-width-1-2@m">
             <div
-              style={{
-                backgroundColor: '#F8F7F3',
-                border: '1px solid var(--color-piedra-light)',
-                borderRadius: 'var(--radius-xs)',
-                height: '420px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                position: 'relative',
-                overflow: 'hidden',
-                marginBottom: '16px',
-              }}
+              className="uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-overflow-hidden product-page-div-02"
             >
               <img
                 src={activeImage}
                 alt={product.name}
-                style={{
-                  maxHeight: '380px',
-                  maxWidth: '90%',
-                  objectFit: 'contain',
-                  transition: 'transform var(--transition-fast)',
-                }}
+                className="product-page-img-01"
               />
-              <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
+              <div className="uk-position-absolute product-page-div-03">
                 {product.badge && (
                   <Badge variant={product.isPromo ? 'oxido' : 'oliva'}>
                     {product.badge}
@@ -150,26 +117,18 @@ export default function ProductPage({ productId, onBackToCatalog, onViewProduct 
 
             {/* Miniaturas */}
             {product.gallery && product.gallery.length > 1 && (
-              <div style={{ display: 'flex', gap: '12px' }}>
+              <div className="uk-flex u-gap-12px">
                 {product.gallery.map((img, idx) => (
                   <button
                     key={idx}
                     type="button"
                     onClick={() => setActiveImage(img)}
-                    style={{
-                      width: '74px',
-                      height: '74px',
-                      padding: '4px',
-                      backgroundColor: '#F8F7F3',
-                      border: activeImage === img ? '2px solid var(--color-oxido)' : '1px solid var(--color-piedra-light)',
-                      borderRadius: 'var(--radius-xs)',
-                      cursor: 'pointer',
-                    }}
+                    className="product-page-button-01" style={{ border: activeImage === img ? '2px solid var(--color-oxido)' : '1px solid var(--color-piedra-light)', borderRadius: 'var(--radius-xs)' }}
                   >
                     <img
                       src={img}
                       alt={`Vista ${idx + 1}`}
-                      style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                      className="product-page-img-02"
                     />
                   </button>
                 ))}
@@ -179,74 +138,59 @@ export default function ProductPage({ productId, onBackToCatalog, onViewProduct 
 
           {/* Información técnica y compra */}
           <div className="uk-width-1-1 uk-width-1-2@m">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-              <span className="bricor-product-brand" style={{ fontSize: 'var(--text-sm)' }}>
+            <div className="uk-flex uk-flex-between uk-flex-middle u-margin-bottom-8px">
+              <span className="bricor-product-brand u-font-size-sm">
                 {product.brand}
               </span>
-              <span className="bricor-product-sku" style={{ fontSize: 'var(--text-xs)' }}>
+              <span className="bricor-product-sku u-font-size-xs">
                 {product.sku}
               </span>
             </div>
 
             <h1
-              style={{
-                fontSize: 'clamp(1.75rem, 3vw, 2.3rem)',
-                margin: '0 0 16px 0',
-                lineHeight: 1.15,
-              }}
+              className="product-page-h1-01"
             >
               {product.name}
             </h1>
 
             {/* Disponibilidad */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+            <div className="uk-flex uk-flex-middle uk-margin-bottom u-gap-12px">
               {product.inStock ? (
                 <Badge variant="stock">En inventario ({product.stockCount} disponibles)</Badge>
               ) : (
                 <Badge variant="lowstock">Agotado temporalmente</Badge>
               )}
-              <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-piedra-dark)' }}>
+              <span className="form-field-span-01">
                 Categoría: <strong>{product.categoryName}</strong>
               </span>
             </div>
 
             {/* Precios */}
             <div
-              style={{
-                padding: '16px 0',
-                borderTop: '1px solid var(--color-piedra-light)',
-                borderBottom: '1px solid var(--color-piedra-light)',
-                marginBottom: '24px',
-              }}
+              className="product-page-div-04"
             >
               <Price price={product.price} originalPrice={product.originalPrice} size="lg" />
-              <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-oliva)', marginTop: '4px', display: 'block' }}>
+              <span className="uk-display-block product-page-span-01">
                 Precio con IVA incluido • Cotización para contratistas disponible
               </span>
             </div>
 
             {/* Descripción */}
-            <div style={{ marginBottom: '28px' }}>
-              <h4 style={{ fontSize: '1.05rem', margin: '0 0 8px 0', color: 'var(--color-carbon)' }}>
+            <div className="u-margin-bottom-28px">
+              <h4 className="product-page-h4-01">
                 Descripción del Producto
               </h4>
-              <p style={{ color: 'var(--color-carbon)', lineHeight: '1.6', fontSize: 'var(--text-base)', margin: 0 }}>
+              <p className="uk-margin-remove product-page-p-02">
                 {product.description}
               </p>
             </div>
 
             {/* Selector de cantidad y CTA */}
             <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '16px',
-                flexWrap: 'wrap',
-                marginBottom: '28px',
-              }}
+              className="uk-flex uk-flex-middle uk-flex-wrap product-page-div-05"
             >
               <div>
-                <span className="bricor-label" style={{ marginBottom: '4px' }}>
+                <span className="bricor-label u-margin-bottom-4px">
                   Cantidad
                 </span>
                 <QuantitySelector
@@ -256,7 +200,7 @@ export default function ProductPage({ productId, onBackToCatalog, onViewProduct 
                 />
               </div>
 
-              <div style={{ flex: 1, minWidth: '200px', marginTop: '16px' }}>
+              <div className="uk-flex-1 product-page-div-06">
                 <Button
                   variant={added ? 'dark' : 'primary'}
                   block
@@ -271,23 +215,14 @@ export default function ProductPage({ productId, onBackToCatalog, onViewProduct 
 
             {/* Garantías de compra */}
             <div
-              style={{
-                backgroundColor: 'var(--color-marfil)',
-                padding: '16px',
-                borderRadius: 'var(--radius-xs)',
-                fontSize: 'var(--text-xs)',
-                color: 'var(--color-oliva)',
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '12px',
-              }}
+              className="product-page-div-07"
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <ShieldCheck size={18} style={{ color: 'var(--color-oxido)' }} />
+              <div className="uk-flex uk-flex-middle u-gap-8px">
+                <ShieldCheck size={18} className="u-color-oxido" />
                 <span>Garantía oficial y soporte directo</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Truck size={18} style={{ color: 'var(--color-oliva)' }} />
+              <div className="uk-flex uk-flex-middle u-gap-8px">
+                <Truck size={18} className="u-color-oliva" />
                 <span>Despacho seguro para herramientas</span>
               </div>
             </div>
@@ -296,15 +231,15 @@ export default function ProductPage({ productId, onBackToCatalog, onViewProduct 
 
         {/* Especificaciones Técnicas */}
         {product.specifications && product.specifications.length > 0 && (
-          <div style={{ marginBottom: '48px' }}>
-            <div style={{ borderBottom: '2px solid var(--color-carbon)', paddingBottom: '12px', marginBottom: '20px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <FileText size={18} style={{ color: 'var(--color-oxido)' }} />
-                <h3 style={{ margin: 0 }}>Especificaciones Técnicas</h3>
+          <div className="u-margin-bottom-48px">
+            <div className="uk-margin-bottom product-page-div-08">
+              <div className="uk-flex uk-flex-middle u-gap-8px">
+                <FileText size={18} className="u-color-oxido" />
+                <h3 className="uk-margin-remove">Especificaciones Técnicas</h3>
               </div>
             </div>
 
-            <div style={{ overflowX: 'auto' }}>
+            <div className="u-overflow-x-auto">
               <table className="bricor-specs-table">
                 <tbody>
                   {product.specifications.map((spec, i) => (
@@ -322,9 +257,9 @@ export default function ProductPage({ productId, onBackToCatalog, onViewProduct 
         {/* Productos Relacionados */}
         {relatedProducts.length > 0 && (
           <div>
-            <div style={{ borderBottom: '2px solid var(--color-carbon)', paddingBottom: '12px', marginBottom: '24px' }}>
+            <div className="product-page-div-09">
               <span className="bricor-label">Complementos de categoría</span>
-              <h3 style={{ margin: 0 }}>Productos Relacionados</h3>
+              <h3 className="uk-margin-remove">Productos Relacionados</h3>
             </div>
 
             <div className="uk-grid uk-grid-medium uk-child-width-1-1 uk-child-width-1-3@m" data-uk-grid>

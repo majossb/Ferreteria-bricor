@@ -150,40 +150,20 @@ export default function HomePage({ onNavigate, onSelectCategory, onViewProduct }
           ========================================================================= */}
       <section
         id="categorias-principales"
-        style={{ padding: '64px 0', borderBottom: '1px solid var(--color-piedra-light)' }}
+        className="home-page-section-01"
       >
         <div className="uk-container">
           <div
-            className="gsap-section-head"
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'baseline',
-              marginBottom: '32px',
-              borderBottom: '2px solid var(--color-carbon)',
-              paddingBottom: '12px',
-            }}
+            className="gsap-section-head home-page-div-01"
           >
             <div>
               <span className="bricor-section-stamp">[ 01 — SUMINISTROS Y RAMAS ]</span>
-              <h2 style={{ margin: 0 }}>Categorías Especializadas</h2>
+              <h2 className="uk-margin-remove">Categorías Especializadas</h2>
             </div>
             <button
               type="button"
               onClick={() => onNavigate('catalog')}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: 'var(--color-oxido)',
-                fontFamily: 'var(--font-editorial)',
-                fontSize: '1.1rem',
-                textTransform: 'uppercase',
-                letterSpacing: '0.04em',
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}
+              className="uk-text-uppercase uk-flex-inline uk-flex-middle home-page-button-01"
             >
               <span>Ver todas</span>
               <ArrowRight size={16} />
@@ -213,33 +193,22 @@ export default function HomePage({ onNavigate, onSelectCategory, onViewProduct }
           CAMPAÑA EDITORIAL / PRODUCTO DESTACADO
           ========================================================================= */}
       {heroProduct && (
-        <section style={{ padding: '64px 0', backgroundColor: '#EBE8DF' }}>
+        <section className="home-page-section-02">
           <div className="uk-container">
             <div className="bricor-promo-block">
               <div className="uk-grid uk-grid-collapse uk-flex-middle" data-uk-grid>
                 {/* Imagen del producto */}
                 <div
-                  className="uk-width-1-1 uk-width-1-2@m gsap-promo-img"
-                  style={{ backgroundColor: '#1A1B17' }}
+                  className="uk-width-1-1 uk-width-1-2@m gsap-promo-img u-background-color-1a1b17"
                 >
-                  <div style={{ position: 'relative', padding: '36px', textAlign: 'center' }}>
+                  <div className="uk-position-relative uk-text-center u-padding-36px">
                     <img
                       src={heroProduct.primaryImage}
                       alt={heroProduct.name}
-                      style={{
-                        maxHeight: '360px',
-                        width: 'auto',
-                        objectFit: 'contain',
-                        margin: '0 auto',
-                        filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.5))',
-                      }}
+                      className="home-page-img-01"
                     />
                     <div
-                      style={{
-                        position: 'absolute',
-                        top: '20px',
-                        left: '20px',
-                      }}
+                      className="uk-position-absolute home-page-div-02"
                     >
                       <span className="bricor-badge bricor-badge-oxido">
                         Selección Técnica del Mes
@@ -250,42 +219,31 @@ export default function HomePage({ onNavigate, onSelectCategory, onViewProduct }
 
                 {/* Contenido editorial del producto */}
                 <div
-                  className="uk-width-1-1 uk-width-1-2@m gsap-promo-text"
-                  style={{ padding: '40px 48px' }}
+                  className="uk-width-1-1 uk-width-1-2@m gsap-promo-text u-padding-40px-48px"
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                    <span className="bricor-product-brand" style={{ color: 'var(--color-piedra)' }}>
+                  <div className="uk-flex uk-flex-middle footer-div-04">
+                    <span className="bricor-product-brand u-color-piedra">
                       {heroProduct.brand}
                     </span>
-                    <span style={{ color: 'var(--color-piedra-dark)' }}>•</span>
-                    <span className="bricor-product-sku" style={{ color: 'var(--color-piedra)' }}>
+                    <span className="u-color-piedra-dark">•</span>
+                    <span className="bricor-product-sku u-color-piedra">
                       {heroProduct.sku}
                     </span>
                   </div>
 
                   <h3
-                    style={{
-                      color: '#FFFFFF',
-                      fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)',
-                      marginBottom: '16px',
-                      textTransform: 'uppercase',
-                    }}
+                    className="uk-text-uppercase home-page-h3-01"
                   >
                     {heroProduct.name}
                   </h3>
 
                   <p
-                    style={{
-                      color: '#cfcdc5',
-                      fontSize: 'var(--text-base)',
-                      lineHeight: '1.6',
-                      marginBottom: '24px',
-                    }}
+                    className="home-page-p-01"
                   >
                     {heroProduct.description}
                   </p>
 
-                  <div style={{ marginBottom: '28px' }}>
+                  <div className="u-margin-bottom-28px">
                     <Price
                       price={heroProduct.price}
                       originalPrice={heroProduct.originalPrice}
@@ -293,7 +251,7 @@ export default function HomePage({ onNavigate, onSelectCategory, onViewProduct }
                     />
                   </div>
 
-                  <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                  <div className="uk-flex uk-flex-wrap u-gap-16px">
                     <Button
                       variant="primary"
                       icon={ArrowRight}
@@ -318,39 +276,19 @@ export default function HomePage({ onNavigate, onSelectCategory, onViewProduct }
       {/* =========================================================================
           PRODUCTOS DESTACADOS
           ========================================================================= */}
-      <section style={{ padding: '64px 0' }}>
+      <section className="u-padding-64px-0">
         <div className="uk-container">
           <div
-            className="gsap-section-head"
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'baseline',
-              marginBottom: '32px',
-              borderBottom: '2px solid var(--color-carbon)',
-              paddingBottom: '12px',
-            }}
+            className="gsap-section-head home-page-div-01"
           >
             <div>
               <span className="bricor-section-stamp">[ 02 — INVENTARIO PROBADO EN FAENA ]</span>
-              <h2 style={{ margin: 0 }}>Productos Destacados</h2>
+              <h2 className="uk-margin-remove">Productos Destacados</h2>
             </div>
             <button
               type="button"
               onClick={() => onNavigate('catalog')}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: 'var(--color-oxido)',
-                fontFamily: 'var(--font-editorial)',
-                fontSize: '1.1rem',
-                textTransform: 'uppercase',
-                letterSpacing: '0.04em',
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}
+              className="uk-text-uppercase uk-flex-inline uk-flex-middle home-page-button-01"
             >
               <span>Ver catálogo completo</span>
               <ArrowRight size={16} />
@@ -359,7 +297,7 @@ export default function HomePage({ onNavigate, onSelectCategory, onViewProduct }
 
           {featuredProducts.length > 0 && (
             <div className="gsap-card" data-uk-slider="finite: true">
-              <div className="uk-slider-container" style={{ paddingBottom: '8px' }}>
+              <div className="uk-slider-container u-padding-bottom-8px">
                 <ul className="uk-slider-items uk-grid uk-grid-medium uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l">
                   {featuredProducts.map((product) => (
                     <li key={product.id}>
@@ -371,50 +309,24 @@ export default function HomePage({ onNavigate, onSelectCategory, onViewProduct }
 
               {/* Controles: flecha anterior, puntos, flecha siguiente */}
               <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '20px',
-                  marginTop: '24px',
-                }}
+                className="uk-flex uk-flex-middle uk-flex-center home-page-div-03"
               >
                 <button
                   type="button"
                   aria-label="Productos anteriores"
                   data-uk-slider-item="previous"
-                  style={{
-                    width: '40px',
-                    height: '40px',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: 'none',
-                    border: '2px solid var(--color-carbon)',
-                    color: 'var(--color-carbon)',
-                    cursor: 'pointer',
-                  }}
+                  className="uk-flex-inline uk-flex-middle uk-flex-center home-page-button-02"
                 >
                   <ChevronLeft size={20} />
                 </button>
 
-                <ul className="uk-slider-nav uk-dotnav" style={{ margin: 0 }} />
+                <ul className="uk-slider-nav uk-dotnav uk-margin-remove" />
 
                 <button
                   type="button"
                   aria-label="Productos siguientes"
                   data-uk-slider-item="next"
-                  style={{
-                    width: '40px',
-                    height: '40px',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: 'none',
-                    border: '2px solid var(--color-carbon)',
-                    color: 'var(--color-carbon)',
-                    cursor: 'pointer',
-                  }}
+                  className="uk-flex-inline uk-flex-middle uk-flex-center home-page-button-02"
                 >
                   <ChevronRight size={20} />
                 </button>
@@ -428,54 +340,41 @@ export default function HomePage({ onNavigate, onSelectCategory, onViewProduct }
           BLOQUE DE CONFIANZA Y VALORES DE OFICIO
           ========================================================================= */}
       <section
-        style={{
-          padding: '56px 0',
-          backgroundColor: 'var(--color-marfil-surface)',
-          borderTop: '1px solid var(--color-piedra-light)',
-          borderBottom: '1px solid var(--color-piedra-light)',
-        }}
+        className="home-page-section-03"
       >
         <div className="uk-container">
           <div
-            className="gsap-section-head"
-            style={{ marginBottom: '28px', borderBottom: '2px solid var(--color-carbon)', paddingBottom: '12px' }}
+            className="gsap-section-head home-page-div-04"
           >
             <span className="bricor-section-stamp">[ 03 — ESTÁNDAR OPERATIVO BRICOR ]</span>
-            <h2 style={{ margin: 0 }}>Criterio de Oficio y Atención Profesional</h2>
+            <h2 className="uk-margin-remove">Criterio de Oficio y Atención Profesional</h2>
           </div>
           <div className="uk-grid uk-grid-large uk-flex-middle" data-uk-grid>
             {/* Imagen (izquierda) */}
             <div className="uk-width-1-1 uk-width-2-5@m">
               <div
-                className="gsap-card"
-                style={{ overflow: 'hidden', border: '2px solid var(--color-carbon)' }}
+                className="gsap-card home-page-div-05"
               >
                 <img
                   src={imagenFerreteria}
                   alt="Asesor de mostrador sonriendo"
-                  style={{
-                    display: 'block',
-                    width: '100%',
-                    minHeight: '360px',
-                    maxHeight: '520px',
-                    objectFit: 'cover',
-                  }}
+                  className="uk-display-block home-page-img-02"
                 />
               </div>
             </div>
 
             {/* Criterios (derecha) */}
             <div className="uk-width-1-1 uk-width-3-5@m">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+              <div className="uk-flex uk-flex-column u-gap-28px">
                 <div className="bricor-trust-item gsap-card">
                   <div className="bricor-trust-icon">
                     <ShieldCheck size={24} />
                   </div>
                   <div>
-                    <h4 style={{ margin: '0 0 6px 0', fontSize: '1.15rem' }}>
+                    <h4 className="home-page-h4-01">
                       Asesoría de Mostrador Especializada
                     </h4>
-                    <p style={{ margin: 0, fontSize: 'var(--text-sm)', color: 'var(--color-oliva)', lineHeight: '1.5' }}>
+                    <p className="uk-margin-remove home-page-p-02">
                       Orientación directa para instaladores, mecánicos y constructores. Selección de calibres, potencias y fijaciones según la necesidad de la obra.
                     </p>
                   </div>
@@ -485,10 +384,10 @@ export default function HomePage({ onNavigate, onSelectCategory, onViewProduct }
                     <Truck size={24} />
                   </div>
                   <div>
-                    <h4 style={{ margin: '0 0 6px 0', fontSize: '1.15rem' }}>
+                    <h4 className="home-page-h4-01">
                       Despacho Programado y Logística
                     </h4>
-                    <p style={{ margin: 0, fontSize: 'var(--text-sm)', color: 'var(--color-oliva)', lineHeight: '1.5' }}>
+                    <p className="uk-margin-remove home-page-p-02">
                       Entregas directas a pie de obra para materiales pesados y suministros continuos, optimizando los tiempos del proyecto.
                     </p>
                   </div>
@@ -498,10 +397,10 @@ export default function HomePage({ onNavigate, onSelectCategory, onViewProduct }
                     <Package size={24} />
                   </div>
                   <div>
-                    <h4 style={{ margin: '0 0 6px 0', fontSize: '1.15rem' }}>
+                    <h4 className="home-page-h4-01">
                       Inventario Real y Trazabilidad
                     </h4>
-                    <p style={{ margin: 0, fontSize: 'var(--text-sm)', color: 'var(--color-oliva)', lineHeight: '1.5' }}>
+                    <p className="uk-margin-remove home-page-p-02">
                       Especificaciones técnicas y códigos SKU verificados para reposición precisa sin confusiones en obra.
                     </p>
                   </div>

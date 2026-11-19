@@ -32,8 +32,7 @@ export default function SearchBar({ onSearch, initialQuery = '', className = '',
         <button
           type="button"
           onClick={handleClear}
-          className="bricor-search-submit"
-          style={{ right: '40px' }}
+          className="bricor-search-submit u-right-40px"
           aria-label="Limpiar búsqueda"
         >
           <X size={15} />

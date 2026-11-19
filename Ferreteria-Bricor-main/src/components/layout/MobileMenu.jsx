@@ -10,8 +10,7 @@ export default function MobileMenu({ isOpen, onClose, onSelectCategory, onNaviga
     <>
       <div className="bricor-drawer-backdrop" onClick={onClose} aria-hidden="true" />
       <aside
-        className={`bricor-cart-drawer is-open`}
-        style={{ left: 0, right: 'auto', transform: 'none' }}
+        className={`bricor-cart-drawer is-open mobile-menu-aside-01`}
         aria-label="Menú principal móvil"
       >
         <div className="bricor-cart-drawer-header">
@@ -19,96 +18,56 @@ export default function MobileMenu({ isOpen, onClose, onSelectCategory, onNaviga
           <button
             type="button"
             onClick={onClose}
-            className="bricor-btn bricor-btn-outline-white bricor-btn-sm"
+            className="bricor-btn bricor-btn-outline-white bricor-btn-sm u-padding-6px"
             aria-label="Cerrar menú"
-            style={{ padding: '6px' }}
           >
             <X size={18} />
           </button>
         </div>
 
         <div className="bricor-cart-drawer-body">
-          <div style={{ marginBottom: '24px' }}>
-            <span className="bricor-label" style={{ color: 'var(--color-oxido)' }}>
+          <div className="u-margin-bottom-24px">
+            <span className="bricor-label u-color-oxido">
               Navegación
             </span>
-            <ul style={{ listStyle: 'none', padding: 0, margin: '8px 0 0 0' }}>
-              <li style={{ borderBottom: '1px solid var(--color-piedra-light)' }}>
+            <ul className="uk-padding-remove mobile-menu-ul-01">
+              <li className="u-border-bottom-1px-solid-piedra-light">
                 <button
                   type="button"
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    padding: '12px 0',
-                    width: '100%',
-                    textAlign: 'left',
-                    fontFamily: 'var(--font-editorial)',
-                    fontSize: '1.2rem',
-                    cursor: 'pointer',
-                    color: 'var(--color-carbon)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                  }}
+                  className="uk-text-left uk-flex uk-flex-middle mobile-menu-button-01"
                   onClick={() => {
                     onNavigate('home');
                     onClose();
                   }}
                 >
-                  <ShoppingBag size={18} style={{ color: 'var(--color-oxido)' }} />
+                  <ShoppingBag size={18} className="u-color-oxido" />
                   Inicio
                 </button>
               </li>
-              <li style={{ borderBottom: '1px solid var(--color-piedra-light)' }}>
+              <li className="u-border-bottom-1px-solid-piedra-light">
                 <button
                   type="button"
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    padding: '12px 0',
-                    width: '100%',
-                    textAlign: 'left',
-                    fontFamily: 'var(--font-editorial)',
-                    fontSize: '1.2rem',
-                    cursor: 'pointer',
-                    color: 'var(--color-carbon)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                  }}
+                  className="uk-text-left uk-flex uk-flex-middle mobile-menu-button-01"
                   onClick={() => {
                     onSelectCategory(null);
                     onNavigate('catalog');
                     onClose();
                   }}
                 >
-                  <Layers size={18} style={{ color: 'var(--color-oliva)' }} />
+                  <Layers size={18} className="u-color-oliva" />
                   Catálogo Completo
                 </button>
               </li>
-              <li style={{ borderBottom: '1px solid var(--color-piedra-light)' }}>
+              <li className="u-border-bottom-1px-solid-piedra-light">
                 <button
                   type="button"
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    padding: '12px 0',
-                    width: '100%',
-                    textAlign: 'left',
-                    fontFamily: 'var(--font-editorial)',
-                    fontSize: '1.2rem',
-                    cursor: 'pointer',
-                    color: 'var(--color-carbon)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                  }}
+                  className="uk-text-left uk-flex uk-flex-middle mobile-menu-button-01"
                   onClick={() => {
                     onNavigate('purchases');
                     onClose();
                   }}
                 >
-                  <PackageCheck size={18} style={{ color: 'var(--color-oxido)' }} />
+                  <PackageCheck size={18} className="u-color-oxido" />
                   Mis compras
                 </button>
               </li>
@@ -116,28 +75,15 @@ export default function MobileMenu({ isOpen, onClose, onSelectCategory, onNaviga
           </div>
 
           <div>
-            <span className="bricor-label" style={{ color: 'var(--color-oxido)' }}>
+            <span className="bricor-label u-color-oxido">
               Categorías Especializadas
             </span>
-            <ul style={{ listStyle: 'none', padding: 0, margin: '8px 0 0 0' }}>
+            <ul className="uk-padding-remove mobile-menu-ul-01">
               {CATEGORIES.map((cat) => (
-                <li key={cat.id} style={{ borderBottom: '1px solid var(--color-piedra-light)' }}>
+                <li key={cat.id} className="u-border-bottom-1px-solid-piedra-light">
                   <button
                     type="button"
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      padding: '10px 0',
-                      width: '100%',
-                      textAlign: 'left',
-                      fontFamily: 'var(--font-body)',
-                      fontSize: '0.92rem',
-                      cursor: 'pointer',
-                      color: 'var(--color-carbon)',
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                    }}
+                    className="uk-text-left uk-flex uk-flex-between uk-flex-middle mobile-menu-button-02"
                     onClick={() => {
                       onSelectCategory(cat.id);
                       onNavigate('catalog');
@@ -146,11 +92,7 @@ export default function MobileMenu({ isOpen, onClose, onSelectCategory, onNaviga
                   >
                     <span>{cat.name}</span>
                     <span
-                      style={{
-                        fontSize: '0.75rem',
-                        fontFamily: 'var(--font-mono)',
-                        color: 'var(--color-piedra-dark)',
-                      }}
+                      className="footer-span-02"
                     >
                       {cat.itemCount} refs
                     </span>
@@ -161,12 +103,12 @@ export default function MobileMenu({ isOpen, onClose, onSelectCategory, onNaviga
           </div>
         </div>
 
-        <div className="bricor-cart-drawer-footer" style={{ fontSize: '0.8rem', color: 'var(--color-oliva)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+        <div className="bricor-cart-drawer-footer mobile-menu-div-01">
+          <div className="uk-flex uk-flex-middle mobile-menu-div-02">
             <ShieldCheck size={16} />
             <strong>BRICOR Ferretería</strong>
           </div>
-          <p style={{ margin: 0 }}>Despachos para obras, profesionales y particulares.</p>
+          <p className="uk-margin-remove">Despachos para obras, profesionales y particulares.</p>
         </div>
       </aside>
     </>

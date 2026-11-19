@@ -22,7 +22,7 @@ export default function FormField({
     <div className={`bricor-form-group ${className}`}>
       {label && (
         <label htmlFor={id} className="bricor-label">
-          {label} {required && <span style={{ color: 'var(--color-oxido)' }}>*</span>}
+          {label} {required && <span className="u-color-oxido">*</span>}
         </label>
       )}
 
@@ -47,7 +47,7 @@ export default function FormField({
           <span>{error}</span>
         </div>
       ) : helperText ? (
-        <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-piedra-dark)' }}>
+        <span className="form-field-span-01">
           {helperText}
         </span>
       ) : null}

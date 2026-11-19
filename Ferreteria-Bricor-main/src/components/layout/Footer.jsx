@@ -50,29 +50,23 @@ export default function Footer({ onNavigate, onSelectCategory }) {
             <div className="uk-width-1-1 uk-width-1-3@m">
               <Logo variant="footer" onClick={() => onNavigate('home')} />
               <p
-                style={{
-                  marginTop: '16px',
-                  color: 'var(--color-piedra)',
-                  fontSize: 'var(--text-sm)',
-                  lineHeight: '1.6',
-                  maxWidth: '340px',
-                }}
+                className="footer-p-01"
               >
                 Ferretería especializada en herramientas de alto desempeño, suministros industriales, fijaciones y materiales para construcción, remodelación e industria pesada.
               </p>
               
-              <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                <span className="bricor-badge bricor-badge-oliva" style={{ color: '#c7c5bc', background: '#2e302b', width: 'fit-content' }}>
+              <div className="uk-flex uk-flex-column footer-div-01">
+                <span className="bricor-badge bricor-badge-oliva footer-span-01">
                   Canal Profesional & Hogar
                 </span>
 
                 {/* Redes sociales oficiales configurables (solo se muestran si tienen URL) */}
                 {socialItems.length > 0 && (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '4px' }}>
-                    <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--color-piedra-dark)', textTransform: 'uppercase' }}>
+                  <div className="uk-flex uk-flex-middle footer-div-02">
+                    <span className="uk-text-uppercase footer-span-02">
                       Síguenos:
                     </span>
-                    <div style={{ display: 'flex', gap: '8px' }}>
+                    <div className="uk-flex u-gap-8px">
                       {socialItems.map((social) => (
                         <a
                           key={social.key}
@@ -80,18 +74,7 @@ export default function Footer({ onNavigate, onSelectCategory }) {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`Visitar canal oficial de BRICOR en ${social.label}`}
-                          style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            width: '32px',
-                            height: '32px',
-                            borderRadius: '4px',
-                            background: '#272923',
-                            color: 'var(--color-piedra)',
-                            border: '1px solid rgba(255, 255, 255, 0.08)',
-                            transition: 'color 0.2s, background-color 0.2s, border-color 0.2s',
-                          }}
+                          className="uk-flex-inline uk-flex-middle uk-flex-center footer-a-01"
                           onMouseEnter={(e) => {
                             e.currentTarget.style.color = 'var(--color-oxido)';
                             e.currentTarget.style.borderColor = 'var(--color-oxido)';
@@ -142,9 +125,9 @@ export default function Footer({ onNavigate, onSelectCategory }) {
                       e.preventDefault();
                       onNavigate('purchases');
                     }}
-                    style={{ fontWeight: 600, color: 'var(--color-marfil)' }}
+                    className="footer-a-02"
                   >
-                    <PackageCheck size={14} style={{ display: 'inline', marginRight: '6px', verticalAlign: '-2px', color: 'var(--color-oxido)' }} />
+                    <PackageCheck size={14} className="uk-display-inline footer-packagecheck-01" />
                     Mis compras y seguimiento
                   </a>
                 </li>
@@ -174,13 +157,13 @@ export default function Footer({ onNavigate, onSelectCategory }) {
             {/* Columna Información de Punto Físico */}
             <div className="uk-width-1-1 uk-width-1-6@m">
               <h4 className="bricor-footer-title">Punto Comercial</h4>
-              <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-piedra)', lineHeight: '1.7' }}>
-                <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
-                  <MapPin size={14} style={{ color: 'var(--color-oxido)', flexShrink: 0, marginTop: '2px' }} />
+              <div className="footer-div-03">
+                <div className="uk-flex footer-div-04">
+                  <MapPin size={14} className="footer-mappin-01" />
                   <span>Sede principal y punto de venta BRICOR (Dirección oficial sujeta a confirmación local)</span>
                 </div>
-                <div style={{ display: 'flex', gap: '8px' }}>
-                  <Clock size={14} style={{ color: 'var(--color-oliva-light)', flexShrink: 0, marginTop: '2px' }} />
+                <div className="uk-flex u-gap-8px">
+                  <Clock size={14} className="footer-clock-01" />
                   <span>Lunes a Sábado: Horario comercial continuado</span>
                 </div>
               </div>
@@ -194,8 +177,8 @@ export default function Footer({ onNavigate, onSelectCategory }) {
           <div>
             © {CURRENT_YEAR} BRICOR® Ferretería y Suministros. Todos los derechos reservados.
           </div>
-          <div style={{ display: 'flex', gap: '16px' }}>
-            <span style={{ color: 'var(--color-piedra-dark)' }}>
+          <div className="uk-flex u-gap-16px">
+            <span className="u-color-piedra-dark">
               Editorial Industrial Contemporánea • UIkit 3 + React
             </span>
           </div>

@@ -6,15 +6,15 @@ export default function AnnouncementBar() {
     <aside className="bricor-announcement" aria-label="Información comercial de servicio">
       <div className="uk-container">
         <div className="bricor-announcement-item">
-          <Truck size={13} style={{ color: 'var(--color-oxido)' }} />
+          <Truck size={13} className="u-color-oxido" />
           <span>Despacho a pie de obra y entregas consolidadas</span>
         </div>
         <div className="bricor-announcement-item uk-visible@m">
-          <ShieldCheck size={13} style={{ color: 'var(--color-oliva-light)' }} />
+          <ShieldCheck size={13} className="u-color-oliva-light" />
           <span>Asesoría técnica para compras mayoristas e instaladores</span>
         </div>
         <div className="bricor-announcement-item uk-visible@s">
-          <MapPin size={13} style={{ color: 'var(--color-piedra)' }} />
+          <MapPin size={13} className="u-color-piedra" />
           <span>Retiro en mostrador sin costo</span>
         </div>
       </div>

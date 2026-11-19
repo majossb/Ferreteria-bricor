@@ -14,8 +14,8 @@ export default function Logo({ className = '', variant = 'header', onClick }) {
   return (
     <div
       onClick={onClick}
-      className={`bricor-logo-wrapper ${className}`}
-      style={{ cursor: onClick ? 'pointer' : 'default', display: 'inline-flex', alignItems: 'center' }}
+      className={`bricor-logo-wrapper ${className} logo-div-01`}
+      style={{ cursor: onClick ? 'pointer' : 'default' }}
       title="BRICOR — Ferretería, Herramientas y Suministros"
     >
       <div className="bricor-logo-link">
