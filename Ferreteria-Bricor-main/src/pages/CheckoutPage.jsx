@@ -314,15 +314,15 @@ export default function CheckoutPage({ onNavigate }) {
         customerData: {
           email: formData.email,
           fullName: formData.fullName,
-          phoneNumber: formData.phone,
+          phoneNumber: formData.phone.replace(/\D/g, '').slice(-10),
           phoneNumberPrefix: '+57',
-          legalId: formData.documentNumber,
+          legalId: formData.documentNumber.replace(/\D/g, ''),
           legalIdType: 'CC',
         },
         shippingAddress: {
           addressLine1: formData.address,
           city: formData.city,
-          phoneNumber: formData.phone,
+          phoneNumber: formData.phone.replace(/\D/g, '').slice(-10),
           region: 'Cundinamarca',
           country: 'CO',
         },
@@ -1010,6 +1010,7 @@ export default function CheckoutPage({ onNavigate }) {
                   rows={3}
                   value={formData.notes}
                   onChange={handleChange}
+                  error={errors.notes}
                   placeholder="Ej. Ingreso por portón lateral de la bodega, horario de recepción hasta las 5:00 pm."
                 />
               </div>
